@@ -25,6 +25,8 @@ static dispatch_semaphore_t show_animation_semaphore;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewCenterYOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewCenterXOffset;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTopSpace;
+
 @property (copy, nonatomic) LGAlertViewCancelBlock      cancelButtonBlock;
 @property (copy, nonatomic) LGAlertViewOtherBlock       otherButtonBlock;
 @property (copy, nonatomic) LGAlertViewTextFieldBlock   textFieldBlock;
@@ -58,32 +60,13 @@ static dispatch_semaphore_t show_animation_semaphore;
               cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock
                otherButtonBlock:(LGAlertViewOtherBlock)otherButtonBlock {
     
-    LGAlertView *alert = [[[NSBundle mainBundle] loadNibNamed:@"LGAlertView" owner:nil options:nil] firstObject];
-    
-    if (alert) {
-        alert.titleLabel.text = title;
-        alert.messageLabel.text = title ? message : [message stringByAppendingString:@"\n"];// just for good-looking when there is no title
-        if (!cancelButtonTitle) {
-            if (otherButtonTitle) {
-                cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
-            } else {
-                cancelButtonTitle = NSLocalizedString(@"OK", nil);
-            }
-        }
-        if (otherButtonTitle) {
-            [alert.cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            [alert.otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
-        } else {
-            [alert.okButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            alert.okButton.hidden = NO;
-        }
-        alert.cancelButtonBlock = cancelButtonBlock;
-        alert.otherButtonBlock = otherButtonBlock;
-        
-        [alert configCommonProperties];
-    }
-    
-    return alert;
+    return [LGAlertView alertWithTitleImage:nil
+                                      title:title
+                                    message:message
+                          cancelButtonTitle:cancelButtonTitle
+                           otherButtonTitle:otherButtonTitle
+                          cancelButtonBlock:cancelButtonBlock
+                           otherButtonBlock:otherButtonBlock];
 }
 
 + (void)showAlertWithTitle:(NSString *)title
@@ -150,11 +133,17 @@ static dispatch_semaphore_t show_animation_semaphore;
                     otherButtonTitle:(NSString *)otherButtonTitle
                    cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock
                     otherButtonBlock:(LGAlertViewOtherBlock)otherButtonBlock {
-    LGAlertView *alert = [[[NSBundle mainBundle] loadNibNamed:@"LGTitleImageAlertView" owner:nil options:nil] firstObject];
+    LGAlertView *alert = [[[NSBundle mainBundle] loadNibNamed:@"LGAlertView" owner:nil options:nil] firstObject];
     
     if (alert) {
-        alert.containerView.clipsToBounds = NO;
-        alert.titleImageView.image = titleImage;
+        
+        if (!titleImage) {
+            alert.titleLabelTopSpace.priority = UILayoutPriorityDefaultHigh + 1;
+            [alert.titleImageView removeFromSuperview];
+        } else {
+            alert.containerView.clipsToBounds = NO;
+            alert.titleImageView.image = titleImage;
+        }
         alert.titleLabel.text = title;
         alert.messageLabel.text = title ? message : [message stringByAppendingString:@"\n"];// just for good-looking when there is no title
         if (!cancelButtonTitle) {

@@ -39,7 +39,7 @@
     
 
     
-    [LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
+    [LGAlertView showAlertWithTitleImage:nil
                                    title:@"This is Title"
                                  message:@"This is message"
                        cancelButtonTitle:@"OK, I know"
