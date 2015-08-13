@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LGActionSheet">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdJ-pH-Cy9" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="403" width="320" height="165"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5D-lP-eD8" userLabel="OKButton0" customClass="LGCustomizedCornerButton">
+                            <rect key="frame" x="15" y="15" width="290" height="40"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didClickOther0:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vhq-Kn-Ydu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQN-Hx-IZN" userLabel="OKButton1" customClass="LGCustomizedCornerButton">
+                            <rect key="frame" x="15" y="54" width="290" height="40"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ems-kQ-rC8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="NO"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didClickOther1:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Eg-bT-WzL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gj3-Ki-Odc" userLabel="cancelButton" customClass="LGRoundCornerButton">
+                            <rect key="frame" x="15" y="109" width="290" height="36"/>
+                            <color key="backgroundColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="1lL-AP-ix2"/>
+                                <constraint firstAttribute="width" constant="290" id="oGv-Fc-VEy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didClickCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="Q2L-3b-anQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Gj3-Ki-Odc" firstAttribute="top" secondItem="IQN-Hx-IZN" secondAttribute="bottom" constant="15" id="1zz-JN-6gk"/>
+                        <constraint firstAttribute="bottom" secondItem="Gj3-Ki-Odc" secondAttribute="bottom" constant="20" id="2lV-WU-X9R"/>
+                        <constraint firstAttribute="centerX" secondItem="s5D-lP-eD8" secondAttribute="centerX" id="Ani-HA-aWD"/>
+                        <constraint firstAttribute="centerX" secondItem="IQN-Hx-IZN" secondAttribute="centerX" id="BNH-BB-WYN"/>
+                        <constraint firstAttribute="centerX" secondItem="Gj3-Ki-Odc" secondAttribute="centerX" id="Eis-3N-wHj"/>
+                        <constraint firstItem="s5D-lP-eD8" firstAttribute="top" secondItem="BdJ-pH-Cy9" secondAttribute="top" constant="15" id="U0s-u5-4WP"/>
+                        <constraint firstItem="IQN-Hx-IZN" firstAttribute="top" secondItem="s5D-lP-eD8" secondAttribute="bottom" constant="-1" id="ZqC-MV-kN9"/>
+                        <constraint firstItem="s5D-lP-eD8" firstAttribute="width" secondItem="Gj3-Ki-Odc" secondAttribute="width" id="f91-cU-VrS"/>
+                        <constraint firstItem="IQN-Hx-IZN" firstAttribute="width" secondItem="Gj3-Ki-Odc" secondAttribute="width" id="ktt-No-Iac"/>
+                        <constraint firstItem="s5D-lP-eD8" firstAttribute="height" secondItem="IQN-Hx-IZN" secondAttribute="height" id="zPJ-35-wxd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="BdJ-pH-Cy9" secondAttribute="bottom" id="67y-5G-TkP"/>
+                <constraint firstItem="BdJ-pH-Cy9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Lx-Y1-srh"/>
+                <constraint firstAttribute="trailing" secondItem="BdJ-pH-Cy9" secondAttribute="trailing" id="OWe-gT-x5N"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="cancelButton" destination="Gj3-Ki-Odc" id="Xxb-46-Bum"/>
+                <outlet property="containerView" destination="BdJ-pH-Cy9" id="D2x-ZU-s2u"/>
+                <outlet property="containerViewBottomSpace" destination="67y-5G-TkP" id="UwD-i5-Xgm"/>
+                <outlet property="otherButton0" destination="s5D-lP-eD8" id="Efp-6M-E4r"/>
+                <outlet property="otherButton1" destination="IQN-Hx-IZN" id="YbF-5E-Ghe"/>
+            </connections>
+            <point key="canvasLocation" x="333" y="380"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

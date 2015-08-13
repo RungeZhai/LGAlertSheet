@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.0" contentMode="scaleToFill" id="BZs-S0-t4G" customClass="LGAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ike-j9-LLp" userLabel="ContainerView">
+                    <rect key="frame" x="20" y="168" width="280" height="232.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSq-h8-JBU" userLabel="ProgressContainerView" customClass="LGRoundCornerView">
+                            <rect key="frame" x="72" y="22" width="136" height="121"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJl-oz-F44" userLabel="CircularProgressContainerView">
+                                    <rect key="frame" x="45" y="20" width="46" height="46"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iEM-f7-H3N" userLabel="CircularProgressBGImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvs-Ex-aRI" userLabel="CircularProgressView" customClass="LGProgressView">
+                                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="iEM-f7-H3N" firstAttribute="top" secondItem="aJl-oz-F44" secondAttribute="top" id="4lx-NS-A4u"/>
+                                        <constraint firstAttribute="trailing" secondItem="Lvs-Ex-aRI" secondAttribute="trailing" id="59l-mb-HKH"/>
+                                        <constraint firstItem="Lvs-Ex-aRI" firstAttribute="top" secondItem="aJl-oz-F44" secondAttribute="top" id="6lg-Tk-pN1"/>
+                                        <constraint firstAttribute="width" constant="46" id="DGN-TC-MRm"/>
+                                        <constraint firstAttribute="trailing" secondItem="iEM-f7-H3N" secondAttribute="trailing" id="KCa-jy-I0A"/>
+                                        <constraint firstItem="Lvs-Ex-aRI" firstAttribute="leading" secondItem="aJl-oz-F44" secondAttribute="leading" id="Wqd-ab-Hte"/>
+                                        <constraint firstItem="iEM-f7-H3N" firstAttribute="leading" secondItem="aJl-oz-F44" secondAttribute="leading" id="e0a-t6-qTC"/>
+                                        <constraint firstAttribute="bottom" secondItem="Lvs-Ex-aRI" secondAttribute="bottom" id="oOh-Tf-Kss"/>
+                                        <constraint firstAttribute="width" secondItem="aJl-oz-F44" secondAttribute="height" multiplier="1:1" id="zCS-Xf-DMC"/>
+                                        <constraint firstAttribute="bottom" secondItem="iEM-f7-H3N" secondAttribute="bottom" id="zai-Zb-19A"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-EA-wMM" userLabel="ProgressLabel">
+                                    <rect key="frame" x="68" y="81" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                    <color key="textColor" red="0.30588235294117649" green="0.27843137254901962" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="136" id="0LW-8g-gdy"/>
+                                <constraint firstAttribute="centerX" secondItem="aJl-oz-F44" secondAttribute="centerX" id="4Lo-7Z-lu0"/>
+                                <constraint firstAttribute="height" priority="250" constant="121" id="9FL-gi-T0S"/>
+                                <constraint firstItem="aJl-oz-F44" firstAttribute="top" secondItem="HSq-h8-JBU" secondAttribute="top" constant="20" id="Bxn-jh-iiE"/>
+                                <constraint firstAttribute="centerX" secondItem="0g2-EA-wMM" secondAttribute="centerX" id="TAf-0x-Vr9"/>
+                                <constraint firstAttribute="bottom" secondItem="0g2-EA-wMM" secondAttribute="bottom" priority="250" constant="18" id="g9H-JF-RFQ"/>
+                                <constraint firstItem="0g2-EA-wMM" firstAttribute="top" secondItem="aJl-oz-F44" secondAttribute="bottom" priority="750" constant="15" id="tXi-XU-fff"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-gB-lhw" userLabel="CompleteContainerView">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="233"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Og-o2-cic" userLabel="messageLabel">
+                                    <rect key="frame" x="20" y="81" width="240" height="51"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="240" id="hGd-ke-vQ6"/>
+                                    </constraints>
+                                    <string key="text">Import successfully. Do you want to delete them from Camera Roll to 
+release 28.3 MB space?</string>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                    <color key="textColor" red="0.30588235294117649" green="0.27843137254901962" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5H-bf-sYg" userLabel="cancelButton" customClass="LGLocalizedButton">
+                                    <rect key="frame" x="20" y="190" width="240" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="KJX-gH-uou"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                    <state key="normal" title="Don't Delete">
+                                        <color key="titleColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="KJX-gH-uou"/>
+                                        </mask>
+                                    </variation>
+                                    <connections>
+                                        <action selector="didClickCancel:" destination="BZs-S0-t4G" eventType="touchUpInside" id="l31-F7-wDG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9R-rB-c96" userLabel="OKButton" customClass="LGRoundCornerButton">
+                                    <rect key="frame" x="20" y="149" width="240" height="36"/>
+                                    <color key="backgroundColor" red="0.20392156859999999" green="0.67450980390000004" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="XFj-Iw-gcd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Release 28.3 MB Space">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="didClickOther:" destination="BZs-S0-t4G" eventType="touchUpInside" id="Sbn-hI-19C"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="5Og-o2-cic" secondAttribute="centerX" id="2rq-4M-ZX2"/>
+                                <constraint firstItem="M5H-bf-sYg" firstAttribute="top" secondItem="m9R-rB-c96" secondAttribute="bottom" constant="5" id="Abc-xn-5Qe"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="height" secondItem="M5H-bf-sYg" secondAttribute="height" id="Cnf-oi-Rcm"/>
+                                <constraint firstAttribute="bottom" secondItem="M5H-bf-sYg" secondAttribute="bottom" constant="6" id="IKJ-Qf-vja"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="centerX" secondItem="M5H-bf-sYg" secondAttribute="centerX" id="PzM-Mq-2AE"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="top" secondItem="5Og-o2-cic" secondAttribute="bottom" constant="18" id="fgg-Ok-rp8"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="width" secondItem="M5H-bf-sYg" secondAttribute="width" id="siE-RR-uiE"/>
+                                <constraint firstItem="5Og-o2-cic" firstAttribute="top" secondItem="Jhd-gB-lhw" secondAttribute="top" constant="81" id="tG2-dX-0ut"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="centerX" secondItem="5Og-o2-cic" secondAttribute="centerX" id="tOv-lj-Ugj"/>
+                                <constraint firstItem="m9R-rB-c96" firstAttribute="width" secondItem="5Og-o2-cic" secondAttribute="width" id="yyo-5z-QTn"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="HSq-h8-JBU" firstAttribute="top" secondItem="Ike-j9-LLp" secondAttribute="top" priority="250" id="2XI-kJ-fdX"/>
+                        <constraint firstAttribute="trailing" secondItem="Jhd-gB-lhw" secondAttribute="trailing" id="5Vs-bw-oJJ"/>
+                        <constraint firstAttribute="bottom" secondItem="Jhd-gB-lhw" secondAttribute="bottom" id="GX8-ZC-mQB"/>
+                        <constraint firstItem="Jhd-gB-lhw" firstAttribute="top" secondItem="Ike-j9-LLp" secondAttribute="top" id="ZYc-87-oxu"/>
+                        <constraint firstAttribute="centerY" secondItem="HSq-h8-JBU" secondAttribute="centerY" multiplier="1.4" priority="751" id="nOn-2e-5Ct"/>
+                        <constraint firstAttribute="centerX" secondItem="HSq-h8-JBU" secondAttribute="centerX" id="qj1-ez-Vxg"/>
+                        <constraint firstItem="Jhd-gB-lhw" firstAttribute="leading" secondItem="Ike-j9-LLp" secondAttribute="leading" id="sOi-Fh-1l0"/>
+                        <constraint firstAttribute="width" constant="280" id="tSc-mc-vhP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="Ike-j9-LLp" secondAttribute="centerX" id="03N-rL-tB9"/>
+                <constraint firstAttribute="centerY" secondItem="Ike-j9-LLp" secondAttribute="centerY" id="hl6-VU-C47"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="cancelButton" destination="M5H-bf-sYg" id="ocl-ez-oGh"/>
+                <outlet property="circularProgressBGImageView" destination="iEM-f7-H3N" id="kSy-cr-cmq"/>
+                <outlet property="completionContainerView" destination="Jhd-gB-lhw" id="One-oe-CuF"/>
+                <outlet property="containerView" destination="Ike-j9-LLp" id="XxJ-s4-y2w"/>
+                <outlet property="messageLabel" destination="5Og-o2-cic" id="drS-lt-SgW"/>
+                <outlet property="otherButton" destination="m9R-rB-c96" id="t1f-ZA-PyX"/>
+                <outlet property="progressContainerViewCenterY" destination="nOn-2e-5Ct" id="xfz-S3-XoI"/>
+                <outlet property="progressContainerViewHeight" destination="9FL-gi-T0S" id="IE9-Cd-Xsc"/>
+                <outlet property="progressContainerViewWidth" destination="0LW-8g-gdy" id="4Wx-J8-qRQ"/>
+                <outlet property="progressLabel" destination="0g2-EA-wMM" id="u7D-Lg-MyS"/>
+                <outlet property="progressView" destination="Lvs-Ex-aRI" id="lxC-BB-LgZ"/>
+            </connections>
+            <point key="canvasLocation" x="210" y="411"/>
+        </view>
+    </objects>
+</document>

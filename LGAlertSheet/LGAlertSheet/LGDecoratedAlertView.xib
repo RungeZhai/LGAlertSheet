@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.0" contentMode="scaleToFill" id="iN0-l3-epB" customClass="LGAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLO-Av-xeE" userLabel="containerView" customClass="LGRoundCornerView">
+                    <rect key="frame" x="20" y="188" width="280" height="194"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Email Account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VF-x0-xGP" userLabel="titleLabel">
+                            <rect key="frame" x="20" y="50" width="240" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This account is already taken.  Try another one?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFn-mi-X4g" userLabel="messageLabel">
+                            <rect key="frame" x="20" y="87" width="240" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-oJ-jVB" userLabel="OKButton" customClass="LGRoundCornerButton">
+                            <rect key="frame" x="20" y="138" width="240" height="36"/>
+                            <color key="backgroundColor" red="0.20392156859999999" green="0.67450980390000004" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="7O8-F5-GKm"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="e3d-xK-9SV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didClickCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="A56-gc-3Id"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="0Cu-gd-brh"/>
+                        <constraint firstItem="0VF-x0-xGP" firstAttribute="top" secondItem="yLO-Av-xeE" secondAttribute="top" constant="50" id="HJS-wG-dXQ"/>
+                        <constraint firstItem="UFn-mi-X4g" firstAttribute="top" secondItem="0VF-x0-xGP" secondAttribute="bottom" constant="15" id="O6N-b0-jhR"/>
+                        <constraint firstAttribute="bottom" secondItem="ztP-oJ-jVB" secondAttribute="bottom" constant="20" id="Ozi-9Y-zE6"/>
+                        <constraint firstItem="UFn-mi-X4g" firstAttribute="leading" secondItem="ztP-oJ-jVB" secondAttribute="leading" id="UBb-aZ-gCe"/>
+                        <constraint firstItem="ztP-oJ-jVB" firstAttribute="leading" secondItem="yLO-Av-xeE" secondAttribute="leading" constant="20" id="auy-3g-G5N"/>
+                        <constraint firstItem="UFn-mi-X4g" firstAttribute="trailing" secondItem="ztP-oJ-jVB" secondAttribute="trailing" id="iMv-t0-7JK"/>
+                        <constraint firstAttribute="trailing" secondItem="ztP-oJ-jVB" secondAttribute="trailing" constant="20" id="qHA-2Y-jvm"/>
+                        <constraint firstItem="UFn-mi-X4g" firstAttribute="trailing" secondItem="0VF-x0-xGP" secondAttribute="trailing" id="s6t-wE-95r"/>
+                        <constraint firstItem="ztP-oJ-jVB" firstAttribute="top" secondItem="UFn-mi-X4g" secondAttribute="bottom" constant="15" id="ttx-8t-y9o"/>
+                        <constraint firstItem="UFn-mi-X4g" firstAttribute="leading" secondItem="0VF-x0-xGP" secondAttribute="leading" id="vcI-sf-CtM"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alertView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="753-Bw-ZWn">
+                    <rect key="frame" x="66" y="112" width="188" height="123"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="123" id="AtR-W3-CMS"/>
+                        <constraint firstAttribute="width" constant="188" id="jqw-O1-nl1"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alertView_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Oe-lm-EFT">
+                    <rect key="frame" x="110" y="156" width="100" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="69" id="0av-rF-5Uz"/>
+                        <constraint firstAttribute="width" constant="100" id="10U-5G-8st"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="kzB-79-9tq"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="69" id="tEl-N3-s8O"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8Oe-lm-EFT" firstAttribute="centerX" secondItem="753-Bw-ZWn" secondAttribute="centerX" id="NZo-tU-3jd"/>
+                <constraint firstAttribute="centerY" secondItem="yLO-Av-xeE" secondAttribute="centerY" constant="-1" id="WjO-5e-zE3"/>
+                <constraint firstItem="yLO-Av-xeE" firstAttribute="centerX" secondItem="753-Bw-ZWn" secondAttribute="centerX" id="o3W-WM-7gH"/>
+                <constraint firstAttribute="centerX" secondItem="yLO-Av-xeE" secondAttribute="centerX" id="qdX-kK-L82"/>
+                <constraint firstItem="8Oe-lm-EFT" firstAttribute="centerY" secondItem="753-Bw-ZWn" secondAttribute="centerY" constant="17" id="xe3-wP-Rcx"/>
+                <constraint firstItem="yLO-Av-xeE" firstAttribute="top" secondItem="753-Bw-ZWn" secondAttribute="top" constant="76" id="ycB-Do-XP7"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="containerView" destination="yLO-Av-xeE" id="vDf-Ag-oKu"/>
+                <outlet property="messageLabel" destination="UFn-mi-X4g" id="FVU-sY-d11"/>
+                <outlet property="okButton" destination="ztP-oJ-jVB" id="MlB-we-OWO"/>
+                <outlet property="titleLabel" destination="0VF-x0-xGP" id="dg3-2f-1eO"/>
+                <outlet property="topBG" destination="753-Bw-ZWn" id="F8U-fn-EQX"/>
+                <outlet property="topIcon" destination="8Oe-lm-EFT" id="vSQ-m5-opK"/>
+            </connections>
+            <point key="canvasLocation" x="341" y="404"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="alertView_bg" width="189" height="123"/>
+        <image name="alertView_icon" width="102" height="70"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
