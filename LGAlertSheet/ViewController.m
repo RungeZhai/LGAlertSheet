@@ -10,7 +10,7 @@
 #import "LGAlertView.h"
 #import "LGProgressView.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIActionSheetDelegate>
 
 @end
 
@@ -32,27 +32,22 @@
 
 - (void)showAlertView {
     
-    LGAlertView *alertView = [LGAlertView alertWithInProgressImage:[UIImage imageNamed:@"import_in_progress"]
-                                                   completionImage:[UIImage imageNamed:@"import_done"]
-                                                           message:@"This is a long long long long long long message"
-                                                 cancelButtonTitle:@"OK, I know"
-                                                  otherButtonTitle:@"Please don't"
-                                                 cancelButtonBlock:nil
-                                                  otherButtonBlock:nil];
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+//    [actionSheet showInView:self.view.window];
     
-    [alertView show];
-    [self simulateProgressOfAlertVie:alertView];
     
     
 
     
-//    [LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
-//                                   title:@"This is Title"
-//                                 message:@"This is message"
-//                       cancelButtonTitle:@"OK, I know"
-//                        otherButtonTitle:nil
-//                       cancelButtonBlock:nil
-//                        otherButtonBlock:nil];
+    [LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
+                                   title:@"This is Title"
+                                 message:@"This is message"
+                       cancelButtonTitle:@"OK, I know"
+                        otherButtonTitle:@"Please don't"
+                       cancelButtonBlock:nil
+                        otherButtonBlock:^(LGAlertView *alertView) {
+                            [self showAlertView];
+                        }];
 }
 
 - (void)simulateProgressOfAlertVie:(LGAlertView *)alertView {
@@ -65,6 +60,22 @@
             [self simulateProgressOfAlertVie:alertView];
         }
     });
+}
+
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    LGAlertView *alertView = [LGAlertView alertWithInProgressImage:[UIImage imageNamed:@"import_in_progress"]
+                                                   completionImage:[UIImage imageNamed:@"import_done"]
+                                                           message:@"This is a long long long long long long message"
+                                                 cancelButtonTitle:@"OK, I know"
+                                                  otherButtonTitle:@"Please don't"
+                                                 cancelButtonBlock:nil
+                                                  otherButtonBlock:nil];
+    
+    [alertView show];
+    [self simulateProgressOfAlertVie:alertView];
 }
 
 

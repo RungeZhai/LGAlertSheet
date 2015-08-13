@@ -32,6 +32,7 @@
 		19B1A4DD1B7A118C0052CE2A /* LGRoundCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4DC1B7A118C0052CE2A /* LGRoundCornerView.m */; };
 		19B1A4E01B7B37430052CE2A /* LGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4DF1B7B37430052CE2A /* LGProgressView.m */; };
 		19B1A4E51B7C84880052CE2A /* LGTitleImageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4E41B7C84880052CE2A /* LGTitleImageAlertView.xib */; };
+		19B1A4E81B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4E71B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		19B1A4DE1B7B37430052CE2A /* LGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGProgressView.h; sourceTree = "<group>"; };
 		19B1A4DF1B7B37430052CE2A /* LGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGProgressView.m; sourceTree = "<group>"; };
 		19B1A4E41B7C84880052CE2A /* LGTitleImageAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGTitleImageAlertView.xib; sourceTree = "<group>"; };
+		19B1A4E61B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+AbstractionHelpers.h"; sourceTree = "<group>"; };
+		19B1A4E71B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+AbstractionHelpers.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				19B1A4D01B79FE490052CE2A /* UIView+Shake.m */,
 				19B1A4DE1B7B37430052CE2A /* LGProgressView.h */,
 				19B1A4DF1B7B37430052CE2A /* LGProgressView.m */,
+				19B1A4E61B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.h */,
+				19B1A4E71B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				19B1A4D21B79FE490052CE2A /* LGCustomizedCornerButton.m in Sources */,
 				19B1A4AB1B79F10D0052CE2A /* LGActionSheet.m in Sources */,
 				19B1A4AE1B79F10D0052CE2A /* LGAlertView.m in Sources */,
+				19B1A4E81B7CB9660052CE2A /* NSPointerArray+AbstractionHelpers.m in Sources */,
 				19B1A4D51B79FE490052CE2A /* UIImage+Color.m in Sources */,
 				19B1A4831B79EC740052CE2A /* ViewController.m in Sources */,
 				19B1A4DA1B7A0F740052CE2A /* LGLocalizedButton.m in Sources */,
@@ -530,6 +536,7 @@
 				19B1A49C1B79EC740052CE2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19B1A49D1B79EC740052CE2A /* Build configuration list for PBXNativeTarget "LGAlertSheetTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +545,7 @@
 				19B1A49F1B79EC740052CE2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

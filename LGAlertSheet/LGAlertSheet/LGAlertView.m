@@ -9,10 +9,13 @@
 #import "LGAlertView.h"
 #import "UIView+Shake.h"
 #import "LGProgressView.h"
+#import "NSPointerArray+AbstractionHelpers.h"
 
 
-static NSMutableArray *stack;
+static NSMutableDictionary *stacks;
+static NSLock *stackLock;
 static dispatch_semaphore_t show_animation_semaphore;
+
 
 @interface LGAlertView ()
 
@@ -36,12 +39,15 @@ static dispatch_semaphore_t show_animation_semaphore;
 
 @end
 
+
 @implementation LGAlertView
 
-#pragma mark - Initialization
+#pragma mark - Initialization & LifeCycle
 
 + (void)initialize {
-    stack = [NSMutableArray new];
+    
+    stacks = [NSMutableDictionary new];
+    stackLock = [NSLock new];
     show_animation_semaphore = dispatch_semaphore_create(1);
 }
 
@@ -279,12 +285,39 @@ static dispatch_semaphore_t show_animation_semaphore;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
+- (void)dealloc {
+    // Caution: Donnot use properties or instance variable in dealloc with ARC
+    // Because they might have been dealloced first and set to nil
+    
+    [stackLock lock];
+    for (id key in stacks.allKeys) {
+        NSPointerArray *stack = stacks[key];
+        [stack removeAllNulls];
+        if (stack.count == 0 || (stack.count == 1 && [stack containsObject:self])) {
+            [stacks removeObjectForKey:key];
+        }
+    }
+    [stackLock unlock];
+}
+
 
 #pragma mark - getter
 
 // Caution: with a upper case "V", superview is a system built-in property.
 - (UIView *)superView {
-    return _superView ?: (_superView = [[[UIApplication sharedApplication] delegate] window]);
+    return _superView ?: (_superView = [[UIApplication sharedApplication] keyWindow]);
+}
+
+- (NSPointerArray *)stack {
+    NSValue *key = [NSValue valueWithNonretainedObject:self.superView];
+    NSPointerArray *stack = stacks[key];
+    
+    if (!stack) {
+        stack = [NSPointerArray weakObjectsPointerArray];
+        stacks[key] = stack;
+    }
+    
+    return stack;
 }
 
 
@@ -295,16 +328,22 @@ static dispatch_semaphore_t show_animation_semaphore;
         dispatch_semaphore_wait(show_animation_semaphore, DISPATCH_TIME_FOREVER);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([stack indexOfObject:self] == NSNotFound) {
-                typeof(self) currentTopMostAlert = [stack lastObject];
+            
+            [stackLock lock];
+            if (![self.stack containsObject:self]) {
+                typeof(self) currentTopMostAlert = [self.stack lastNonNullableObject];
+                [stackLock unlock];
                 currentTopMostAlert.hidden = YES;
                 
                 [self addToSuperView];
                 [self performShowAnimation:^() {
-                    [stack addObject:self];
+                    [stackLock lock];
+                    [self.stack addObject:self];
+                    [stackLock unlock];
                     dispatch_semaphore_signal(show_animation_semaphore);
                 }];
             } else {
+                [stackLock unlock];
                 [self performShowAnimation:^{
                     dispatch_semaphore_signal(show_animation_semaphore);
                 }];
@@ -314,14 +353,14 @@ static dispatch_semaphore_t show_animation_semaphore;
 }
 
 - (void)addToSuperView {
-    if ([[self superView] isKindOfClass:[UIWindow class]] &&
+    if ([self.superView isKindOfClass:[UIWindow class]] &&
         [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
         [self statusBarOrientationChange:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
     }
     
-    self.frame = (CGRect){.origin = CGPointZero, .size = [self superView].frame.size};
-    [[self superView] addSubview:self];
+    self.frame = (CGRect){.origin = CGPointZero, .size = self.superView.frame.size};
+    [self.superView addSubview:self];
 }
 
 - (void)performShowAnimation:(void (^)())completion {
@@ -428,7 +467,9 @@ static dispatch_semaphore_t show_animation_semaphore;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
     self.cancelButtonBlock = self.otherButtonBlock = self.textFieldBlock = NULL;
     [self removeFromSuperview];
-    [stack removeObject:self];
+    [stackLock lock];
+    [self.stack removeObject:self];
+    [stackLock unlock];
 }
 
 - (void)dismiss {
@@ -436,7 +477,9 @@ static dispatch_semaphore_t show_animation_semaphore;
     [self dismissSelf];
     
     // 2. show the youngest sibling older than self
-    typeof(self) nextTopMostAlert = [stack lastObject];
+    [stackLock lock];
+    typeof(self) nextTopMostAlert = [self.stack lastNonNullableObject];
+    [stackLock unlock];
     [nextTopMostAlert show];
 }
 
@@ -467,7 +510,7 @@ static dispatch_semaphore_t show_animation_semaphore;
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:duration];
     
-    if ([[self superView] isKindOfClass:[UIWindow class]] && [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
+    if ([self.superView isKindOfClass:[UIWindow class]] && [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
         UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
         if (orientation == UIInterfaceOrientationPortrait) {
             _containerViewCenterYOffset.constant = keyboardHeight / 2;
