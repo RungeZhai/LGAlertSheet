@@ -432,7 +432,7 @@ static dispatch_semaphore_t show_animation_semaphore;
             _messageLabel.text = errorMessage;
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
-            [_messageLabel shake:10 withDelta:_messageLabel.bounds.size.width / 10 speed:.05f];
+            [_messageLabel shake:8 withDelta:_messageLabel.bounds.size.width / 10 speed:.05f];
         }];
     } else {
         _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
