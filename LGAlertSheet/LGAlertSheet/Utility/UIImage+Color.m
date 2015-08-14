@@ -2,8 +2,8 @@
 //  UIImage+Additions.m
 //  VideoDownloader
 //
-//  Created by Jin Sun on 13-1-15.
-//  Copyright (c) 2013年 Jin Sun. All rights reserved.
+//  Created by liuge on 13-1-15.
+//  Copyright (c) 2013 ZiXuWuYou. All rights reserved.
 //
 
 #import "UIImage+Color.h"
