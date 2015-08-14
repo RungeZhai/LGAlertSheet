@@ -1,6 +1,6 @@
 //
 //  LGActionSheet.m
-//  ZIXUWUYOU
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 7/16/15.
 //  Copyright (c) 2015 ZIXUWUYOU. All rights reserved.

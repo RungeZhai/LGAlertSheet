@@ -1,6 +1,6 @@
 //
 //  UIImage+Additions.h
-//  VideoDownloader
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 13-1-15.
 //  Copyright (c) 2013 ZiXuWuYou. All rights reserved.

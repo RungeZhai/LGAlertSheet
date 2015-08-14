@@ -1,6 +1,6 @@
 //
 //  LGCustomizedCornerButton.m
-//  ILSPrivatePhoto
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 7/17/15.
 //  Copyright (c) 2015 ZiXuWuYou. All rights reserved.

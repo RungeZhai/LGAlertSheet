@@ -1,6 +1,6 @@
 //
-//  HPLocalizedButton.h
-//  ILSPrivatePhoto
+//  LGLocalizedButton.h
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 15/4/14.
 //  Copyright (c) 2015 ZiXuWuYou. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  LGAlertView.h
-//  ZIXUWUYOU
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 5/15/15.
 //  Copyright (c) 2015 ZIXUWUYOU. All rights reserved.
@@ -22,7 +22,7 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
  * If you don't set superView, the superView is keyWindow by default.
  * Otherwise, you MUST set it BEFORE alertView has shown.
  */
-@property (weak, nonatomic) UIView                  *superView;
+@property (weak, nonatomic)          UIView         *superView;
 
 /**
  *  For Basic AlertView

@@ -1,6 +1,6 @@
 //
 //  LGRoundCornerButton.h
-//  testUITextField
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 5/4/15.
 //  Copyright (c) 2015 ZiXuWuYou. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  LGAlertView.m
-//  ZIXUWUYOU
+//  LGAlertSheet
 //
 //  Created by Runge Zhai on 5/15/15.
 //  Copyright (c) 2015 ZIXUWUYOU. All rights reserved.

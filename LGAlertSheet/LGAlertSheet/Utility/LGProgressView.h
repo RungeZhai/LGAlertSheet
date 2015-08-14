@@ -11,6 +11,6 @@
 
 @interface LGProgressView : UIView
 
-@property (nonatomic, getter=currentProgress) CGFloat progress;
+@property (nonatomic, getter = currentProgress) CGFloat progress;
 
 @end
