@@ -13,7 +13,6 @@
 
 
 static NSMutableDictionary *stacks;
-static NSLock *stackLock;
 static dispatch_semaphore_t show_animation_semaphore;
 
 
@@ -49,7 +48,6 @@ static dispatch_semaphore_t show_animation_semaphore;
 + (void)initialize {
     
     stacks = [NSMutableDictionary new];
-    stackLock = [NSLock new];
     show_animation_semaphore = dispatch_semaphore_create(1);
 }
 
@@ -278,7 +276,6 @@ static dispatch_semaphore_t show_animation_semaphore;
     // Caution: Donnot use properties or instance variable in dealloc with ARC
     // Because they might have been dealloced first and set to nil
     
-    [stackLock lock];
     for (id key in stacks.allKeys) {
         NSPointerArray *stack = stacks[key];
         [stack removeAllNulls];
@@ -286,7 +283,6 @@ static dispatch_semaphore_t show_animation_semaphore;
             [stacks removeObjectForKey:key];
         }
     }
-    [stackLock unlock];
 }
 
 
@@ -318,21 +314,16 @@ static dispatch_semaphore_t show_animation_semaphore;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [stackLock lock];
             if (![self.stack containsObject:self]) {
                 typeof(self) currentTopMostAlert = [self.stack lastNonNullableObject];
-                [stackLock unlock];
                 currentTopMostAlert.hidden = YES;
                 
                 [self addToSuperView];
                 [self performShowAnimation:^() {
-                    [stackLock lock];
                     [self.stack addObject:self];
-                    [stackLock unlock];
                     dispatch_semaphore_signal(show_animation_semaphore);
                 }];
             } else {
-                [stackLock unlock];
                 [self performShowAnimation:^{
                     dispatch_semaphore_signal(show_animation_semaphore);
                 }];
@@ -456,9 +447,7 @@ static dispatch_semaphore_t show_animation_semaphore;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
     self.cancelButtonBlock = self.otherButtonBlock = self.textFieldBlock = NULL;
     [self removeFromSuperview];
-    [stackLock lock];
     [self.stack removeObject:self];
-    [stackLock unlock];
 }
 
 - (void)dismiss {
@@ -466,9 +455,7 @@ static dispatch_semaphore_t show_animation_semaphore;
     [self dismissSelf];
     
     // 2. show the youngest sibling older than self
-    [stackLock lock];
     typeof(self) nextTopMostAlert = [self.stack lastNonNullableObject];
-    [stackLock unlock];
     [nextTopMostAlert show];
 }
 
