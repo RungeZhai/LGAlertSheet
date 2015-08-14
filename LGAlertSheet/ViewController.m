@@ -46,7 +46,7 @@
                         otherButtonTitle:@"Please don't"
                        cancelButtonBlock:nil
                         otherButtonBlock:^(LGAlertView *alertView) {
-                            [self showAlertView];
+                            [alertView showErrorMessage:@"Wrong\nWrong\nWrong Password" animated:YES];
                         }];
 }
 

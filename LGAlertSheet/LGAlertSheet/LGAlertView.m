@@ -425,10 +425,17 @@ static dispatch_semaphore_t show_animation_semaphore;
 }
 
 - (void)showErrorMessage:(NSString *)errorMessage animated:(BOOL)animated {
-    _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
+    
     if (animated) {
-        [_messageLabel shake:8 withDelta:_messageLabel.bounds.size.width / 10 speed:.04f];
+        [UIView transitionWithView:_messageLabel duration:.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
+            _messageLabel.text = errorMessage;
+            [self layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [_messageLabel shake:10 withDelta:_messageLabel.bounds.size.width / 10 speed:.05f];
+        }];
     } else {
+        _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
         _messageLabel.text = errorMessage;
     }
 }
