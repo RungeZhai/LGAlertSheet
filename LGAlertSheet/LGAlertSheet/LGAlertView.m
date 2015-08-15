@@ -42,6 +42,13 @@ static dispatch_semaphore_t show_animation_semaphore;
 
 @implementation LGAlertView
 
+/**
+ *  If getter and setter method are both implemented explicitly,
+ *  the complier will not automatically create corresponding instance variable any more
+ */
+@synthesize superView = _superView;
+
+
 #pragma mark - Initialization & LifeCycle
 
 + (void)initialize {
@@ -238,7 +245,10 @@ static dispatch_semaphore_t show_animation_semaphore;
 }
 
 - (void)configCommonProperties {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidEnterBackground:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
 }
 
 - (void)dealloc {
@@ -260,6 +270,15 @@ static dispatch_semaphore_t show_animation_semaphore;
 // Caution: with a upper case "V", superview is a system built-in property.
 - (UIView *)superView {
     return _superView ?: (_superView = [[UIApplication sharedApplication] keyWindow]);
+}
+
+- (void)setSuperView:(UIView *)superView {
+    if (self.superview) {
+        [NSException raise:NSObjectInaccessibleException
+                    format:@"LGAlertView: You cannot change alertview's superView once it has shown"];
+    } else {
+        _superView = superView;
+    }
 }
 
 - (NSPointerArray *)stack {
