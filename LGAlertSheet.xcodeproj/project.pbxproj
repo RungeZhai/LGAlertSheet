@@ -18,7 +18,6 @@
 		19B1A4AC1B79F10D0052CE2A /* LGActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4A31B79F10D0052CE2A /* LGActionSheet.xib */; };
 		19B1A4AD1B79F10D0052CE2A /* LGActionSheet_2Opt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4A41B79F10D0052CE2A /* LGActionSheet_2Opt.xib */; };
 		19B1A4AE1B79F10D0052CE2A /* LGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4A61B79F10D0052CE2A /* LGAlertView.m */; };
-		19B1A4B01B79F10D0052CE2A /* LGDecoratedAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4A81B79F10D0052CE2A /* LGDecoratedAlertView.xib */; };
 		19B1A4B11B79F10D0052CE2A /* LGProgressAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4A91B79F10D0052CE2A /* LGProgressAlertView.xib */; };
 		19B1A4B21B79F10D0052CE2A /* LGTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4AA1B79F10D0052CE2A /* LGTextFieldAlertView.xib */; };
 		19B1A4D11B79FE490052CE2A /* LGCommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4C61B79FE490052CE2A /* LGCommonButton.m */; };
@@ -64,7 +63,6 @@
 		19B1A4A41B79F10D0052CE2A /* LGActionSheet_2Opt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGActionSheet_2Opt.xib; sourceTree = "<group>"; };
 		19B1A4A51B79F10D0052CE2A /* LGAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGAlertView.h; sourceTree = "<group>"; };
 		19B1A4A61B79F10D0052CE2A /* LGAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGAlertView.m; sourceTree = "<group>"; };
-		19B1A4A81B79F10D0052CE2A /* LGDecoratedAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGDecoratedAlertView.xib; sourceTree = "<group>"; };
 		19B1A4A91B79F10D0052CE2A /* LGProgressAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGProgressAlertView.xib; sourceTree = "<group>"; };
 		19B1A4AA1B79F10D0052CE2A /* LGTextFieldAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGTextFieldAlertView.xib; sourceTree = "<group>"; };
 		19B1A4C61B79FE490052CE2A /* LGCommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCommonButton.m; sourceTree = "<group>"; };
@@ -177,10 +175,9 @@
 				19B1A4A41B79F10D0052CE2A /* LGActionSheet_2Opt.xib */,
 				19B1A4A51B79F10D0052CE2A /* LGAlertView.h */,
 				19B1A4A61B79F10D0052CE2A /* LGAlertView.m */,
-				19B1A4A81B79F10D0052CE2A /* LGDecoratedAlertView.xib */,
-				19B1A4A91B79F10D0052CE2A /* LGProgressAlertView.xib */,
-				19B1A4AA1B79F10D0052CE2A /* LGTextFieldAlertView.xib */,
 				19B1A4E41B7C84880052CE2A /* LGAlertView.xib */,
+				19B1A4AA1B79F10D0052CE2A /* LGTextFieldAlertView.xib */,
+				19B1A4A91B79F10D0052CE2A /* LGProgressAlertView.xib */,
 				19B1A4C51B79FE490052CE2A /* Utility */,
 			);
 			path = LGAlertSheet;
@@ -293,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B1A4B01B79F10D0052CE2A /* LGDecoratedAlertView.xib in Resources */,
 				19B1A4E51B7C84880052CE2A /* LGAlertView.xib in Resources */,
 				19B1A4B21B79F10D0052CE2A /* LGTextFieldAlertView.xib in Resources */,
 				19B1A4AD1B79F10D0052CE2A /* LGActionSheet_2Opt.xib in Resources */,

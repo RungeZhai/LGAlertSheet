@@ -36,23 +36,17 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
 @property (weak, nonatomic) IBOutlet UIButton       *okButton;
 
 /**
+ *  For Title Image AlertView
+ */
+@property (weak, nonatomic) IBOutlet UIImageView    *titleImageView;
+
+/**
  *  For Progress AlertView with a completion transition
  */
 @property (weak, nonatomic) IBOutlet UILabel        *progressLabel;
 @property (weak, nonatomic) IBOutlet LGProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIImageView    *circularProgressBGImageView;
 @property (strong, nonatomic)        UIImage        *completionImage;
-
-/**
- *  For Decorated AlertView
- */
-@property (weak, nonatomic) IBOutlet UIImageView    *topBG;
-@property (weak, nonatomic) IBOutlet UIImageView    *topIcon;
-
-/**
- *  For Title Image AlertView
- */
-@property (weak, nonatomic) IBOutlet UIImageView    *titleImageView;
 
 
 /**
@@ -160,21 +154,5 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
                     otherButtonTitle:(NSString *)otherButtonTitle
                    cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock
                     otherButtonBlock:(LGAlertViewOtherBlock)otherButtonBlock;
-
-/**
- *  Initialize an alert view with decorated top
- */
-+ (LGAlertView *)decoratedAlertWithTitle:(NSString *)title
-                                 message:(NSString *)message
-                       cancelButtonTitle:(NSString *)cancelButtonTitle
-                       cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock;
-
-/**
- *  Initialize an alert view with decorated top
- */
-+ (void)showDecoratedAlertWithTitle:(NSString *)title
-                            message:(NSString *)message
-                  cancelButtonTitle:(NSString *)cancelButtonTitle
-                  cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock;
 
 @end

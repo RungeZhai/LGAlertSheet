@@ -66,16 +66,10 @@
 }
 
 - (id)lastNonNullableObject {
-    
     NSInteger index = self.count;
-    
-    while (--index >= 0 && ![self pointerAtIndex:index]) {}
-    
-    if (index >= 0) {
-        return [self pointerAtIndex:index];
-    }
-    
-    return nil;
+    id result = nil;
+    while (--index >= 0 && !(result = [self pointerAtIndex:index]));
+    return result;
 }
 
 @end

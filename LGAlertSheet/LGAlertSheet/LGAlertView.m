@@ -239,35 +239,6 @@ static dispatch_semaphore_t show_animation_semaphore;
     [alert show];
 }
 
-+ (LGAlertView *)decoratedAlertWithTitle:(NSString *)title
-                                 message:(NSString *)message
-                       cancelButtonTitle:(NSString *)cancelButtonTitle
-                       cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock {
-    LGAlertView *alert = [[[NSBundle mainBundle] loadNibNamed:@"LGDecoratedAlertView" owner:nil options:nil] firstObject];
-    
-    if (alert) {
-        alert.titleLabel.text = title;
-        alert.messageLabel.text = title ? message : [message stringByAppendingString:@"\n"];// just for good-looking
-        if (!cancelButtonTitle) {
-            cancelButtonTitle = NSLocalizedString(@"OK", nil);
-        }
-        [alert.okButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-        alert.cancelButtonBlock = cancelButtonBlock;
-        [alert configCommonProperties];
-    }
-    
-    return alert;
-}
-
-+ (void)showDecoratedAlertWithTitle:(NSString *)title
-                            message:(NSString *)message
-                  cancelButtonTitle:(NSString *)cancelButtonTitle
-                  cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock {
-
-    LGAlertView *alert = [LGAlertView decoratedAlertWithTitle:title message:message cancelButtonTitle:cancelButtonTitle cancelButtonBlock:cancelButtonBlock];
-    [alert show];
-}
-
 - (void)configCommonProperties {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
@@ -350,23 +321,9 @@ static dispatch_semaphore_t show_animation_semaphore;
     
     self.containerView.transform = CGAffineTransformScale(originalTransform, .1f, .1f);
     
-    if (self.topBG ) {
-        self.topBG.transform = CGAffineTransformScale(originalTransform, .1f, .1f);
-    }
-    if (self.topIcon) {
-        self.topIcon.transform = CGAffineTransformScale(originalTransform, .1f, .1f);
-    }
-    
     [UIView animateWithDuration:.35f delay:0 usingSpringWithDamping:.8f initialSpringVelocity:20 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.alpha = 1;
         self.containerView.transform = originalTransform;
-        if (self.topBG) {
-            self.topBG.transform = CGAffineTransformIdentity;
-        }
-        if (self.topIcon) {
-            self.topIcon.transform = CGAffineTransformIdentity;
-        }
-    
     } completion:^(BOOL finished) {
         if (completion) completion();
     }];
