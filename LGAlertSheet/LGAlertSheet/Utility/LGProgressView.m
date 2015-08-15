@@ -76,7 +76,7 @@ static CGFloat kProgressLineWidth = 5.;
     _isAnimationInProgress = YES;
     _temporaryToValue = toValue;
     
-    CGFloat animation_time = (toValue - _progress) * 2;
+    CGFloat animationTime = (toValue - _progress) * 2;
     
     float start_angle = -M_PI_2;
     float end_angle = 2 * M_PI * toValue - M_PI_2;
@@ -100,13 +100,13 @@ static CGFloat kProgressLineWidth = 5.;
     // Configure animation
     CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     
-    drawAnimation.duration            = animation_time;
+    drawAnimation.duration            = animationTime;
     drawAnimation.repeatCount         = 0.0;  // Animate only once..
     drawAnimation.removedOnCompletion = NO;   // Remain stroked after the animation..
     
     // Animate from no part of the stroke being drawn to the entire stroke being drawn
-    drawAnimation.fromValue = [NSNumber numberWithFloat:_progress / toValue];
-    drawAnimation.toValue   = [NSNumber numberWithFloat:1.0];
+    drawAnimation.fromValue = @(_progress / toValue);
+    drawAnimation.toValue   = @1;
     
     // Experiment with timing to get the appearence to look the way you want
     drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
