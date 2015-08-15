@@ -46,7 +46,6 @@ static dispatch_semaphore_t show_animation_semaphore;
 #pragma mark - Initialization & LifeCycle
 
 + (void)initialize {
-    
     stacks = [NSMutableDictionary new];
     show_animation_semaphore = dispatch_semaphore_create(1);
 }
