@@ -22,31 +22,38 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
  * If you don't set superView, the superView is keyWindow by default.
  * Otherwise, you MUST set it BEFORE alertView has shown.
  */
-@property (weak, nonatomic)          UIView         *superView;
+@property (weak, nonatomic)          UIView           *superView;
 
 /**
  *  For Basic AlertView
  */
-@property (weak, nonatomic) IBOutlet UIView         *containerView;
-@property (weak, nonatomic) IBOutlet UITextField    *textField;
-@property (weak, nonatomic) IBOutlet UILabel        *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel        *messageLabel;
-@property (weak, nonatomic) IBOutlet UIButton       *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton       *otherButton;
-@property (weak, nonatomic) IBOutlet UIButton       *okButton;
+@property (weak, nonatomic) IBOutlet UIView           *containerView;
+@property (weak, nonatomic) IBOutlet UITextField      *textField;
+@property (weak, nonatomic) IBOutlet UILabel          *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel          *messageLabel;
+@property (weak, nonatomic) IBOutlet UIButton         *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton         *otherButton;
+@property (weak, nonatomic) IBOutlet UIButton         *okButton;
+
+/**
+ *  You can set button action callback block any time before user click the button
+ */
+@property (copy, nonatomic) LGAlertViewCancelBlock    cancelButtonBlock;
+@property (copy, nonatomic) LGAlertViewOtherBlock     otherButtonBlock;
+@property (copy, nonatomic) LGAlertViewTextFieldBlock textFieldBlock;
 
 /**
  *  For Title Image AlertView
  */
-@property (weak, nonatomic) IBOutlet UIImageView    *titleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView      *titleImageView;
 
 /**
  *  For Progress AlertView with a completion transition
  */
-@property (weak, nonatomic) IBOutlet UILabel        *progressLabel;
-@property (weak, nonatomic) IBOutlet LGProgressView *progressView;
-@property (weak, nonatomic) IBOutlet UIImageView    *circularProgressBGImageView;
-@property (strong, nonatomic)        UIImage        *completionImage;
+@property (weak, nonatomic) IBOutlet UILabel          *progressLabel;
+@property (weak, nonatomic) IBOutlet LGProgressView   *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView      *circularProgressBGImageView;
+@property (strong, nonatomic)        UIImage          *completionImage;
 
 
 /**
@@ -54,7 +61,13 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
  */
 - (void)show;
 - (void)dismiss;
-- (void)showErrorMessage:(NSString *)errorMessage;
+
+/**
+ *  Default behaviour of showing/changing title/message/errorMessage
+ *  You can directly use titleLable/messageLabel to customize you own way
+ */
+- (void)setTitle:(NSString *)title animated:(BOOL)animated;
+- (void)setMessage:(NSString *)message animated:(BOOL)animated;
 - (void)showErrorMessage:(NSString *)errorMessage animated:(BOOL)animated;
 
 

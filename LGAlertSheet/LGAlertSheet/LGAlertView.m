@@ -24,11 +24,10 @@ static dispatch_semaphore_t show_animation_semaphore;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewCenterYOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewCenterXOffset;
 
+/** 
+ *  For Basic AlertView
+ */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTopSpace;
-
-@property (copy, nonatomic) LGAlertViewCancelBlock      cancelButtonBlock;
-@property (copy, nonatomic) LGAlertViewOtherBlock       otherButtonBlock;
-@property (copy, nonatomic) LGAlertViewTextFieldBlock   textFieldBlock;
 
 /**
  *  For Progress Alert View completion transition
@@ -376,29 +375,51 @@ static dispatch_semaphore_t show_animation_semaphore;
     });
 }
 
-- (void)showErrorMessage:(NSString *)errorMessage {
-    [self showErrorMessage:errorMessage animated:NO];
+- (void)setTitle:(NSString *)title animated:(BOOL)animated {
+    [self setLabel:_titleLabel
+       withMessage:title
+         textColor:nil
+           isError:NO
+          animated:animated];
+}
+
+- (void)setMessage:(NSString *)message animated:(BOOL)animated {
+    [self setLabel:_messageLabel
+       withMessage:message
+         textColor:[UIColor colorWithWhite:0x65 / 255.f alpha:1.f]
+           isError:NO
+          animated:animated];
 }
 
 - (void)showErrorMessage:(NSString *)errorMessage animated:(BOOL)animated {
-    
-    if (animated) {
-        [UIView transitionWithView:_messageLabel duration:.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
-            _messageLabel.text = errorMessage;
-            [self layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            [_messageLabel shake:8 withDelta:_messageLabel.bounds.size.width / 10 speed:.05f];
-        }];
-    } else {
-        _messageLabel.textColor = [UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f];
-        _messageLabel.text = errorMessage;
-    }
+    [self setLabel:_messageLabel
+       withMessage:errorMessage
+         textColor:[UIColor colorWithRed:249 / 255.f green:0 blue:14 / 255.f alpha:1.f]
+           isError:YES
+          animated:animated];
 }
 
-- (void)showMessage:(NSString *)message {
-    _messageLabel.textColor = [UIColor colorWithWhite:0x65 / 255.f alpha:1.f];
-    _messageLabel.text = message;
+- (void)setLabel:(UILabel *)label withMessage:(NSString *)message textColor:(UIColor *)textColor isError:(BOOL)isError animated:(BOOL)animated {
+    
+    void (^block)() = ^(){
+        if (textColor) {
+            label.textColor = textColor;
+        }
+        label.text = message;
+    };
+    
+    if (animated) {
+        [UIView transitionWithView:label duration:.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            block();
+            [self layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            if (isError) {
+                [label shake:8 withDelta:label.bounds.size.width / 10 speed:.05f];
+            }
+        }];
+    } else {
+        block();
+    }
 }
 
 
@@ -486,17 +507,17 @@ static dispatch_semaphore_t show_animation_semaphore;
 #pragma mark - Orientation & Rotation
 
 - (void)statusBarOrientationChange:(NSNotification *)notification {
-    self.containerView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, [[self class] rotationAngle]);
+    self.containerView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, [self rotationAngle]);
 }
 
-+ (CGFloat)rotationAngle {
+- (CGFloat)rotationAngle {
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     
     CGFloat radian = 0;
     if (orientation == UIInterfaceOrientationLandscapeLeft) {
-        radian = -M_PI / 2.f;
+        radian = -M_PI / 2.;
     } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-        radian = M_PI / 2.f;
+        radian = M_PI / 2.;
     } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
         radian = -M_PI;
     }
