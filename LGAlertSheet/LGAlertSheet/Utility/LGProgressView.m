@@ -12,7 +12,8 @@ static CGFloat kProgressLineWidth = 5.;
 
 @interface LGProgressView ()
 
-@property (nonatomic)       CGFloat       newToValue;
+@property (nonatomic)       CGFloat       latestToValue;
+@property (nonatomic)       CGFloat       temporaryToValue;
 @property (nonatomic)       BOOL          isAnimationInProgress;
 @property (weak, nonatomic) CAShapeLayer *progressCircleLayer;
 
@@ -24,7 +25,8 @@ static CGFloat kProgressLineWidth = 5.;
     self = [super initWithFrame:frame];
     if (self) {
         _progress = .0;
-        _newToValue = .0;
+        _latestToValue = .0;
+        _temporaryToValue = .0;
         _isAnimationInProgress = NO;
         
         self.alpha = 0.95;
@@ -39,7 +41,8 @@ static CGFloat kProgressLineWidth = 5.;
     [super awakeFromNib];
     
     _progress = .0;
-    _newToValue = .0;
+    _latestToValue = .0;
+    _temporaryToValue = .0;
     _isAnimationInProgress = NO;
 }
 
@@ -56,33 +59,24 @@ static CGFloat kProgressLineWidth = 5.;
     [processBackgroundPath stroke];
 }
 
-- (void)setAnimationDone {
-    _isAnimationInProgress = NO;
-    if (_newToValue > _progress)
-        [self setProgress:_newToValue];
-}
-
-- (void)setProgress:(CGFloat)value {
+- (void)setProgress:(CGFloat)toValue {
     
-    CGFloat toValue = value;
-    
-    if (toValue <= _progress)
+    if (toValue <= _temporaryToValue)
         return;
     else if (toValue > 1.0)
         toValue = 1.0;
     
-    // make this method non re-enterable but still can catch up if progress is 
+    // make this method non re-enterable but still can catch up if progress is left behind
     
     if (_isAnimationInProgress) {
-        _newToValue = toValue;
+        _latestToValue = toValue;
         return;
     }
     
     _isAnimationInProgress = YES;
+    _temporaryToValue = toValue;
     
     CGFloat animation_time = (toValue - _progress) * 2;
-    
-    [self performSelector:@selector(setAnimationDone) withObject:Nil afterDelay:animation_time];
     
     float start_angle = -M_PI_2;
     float end_angle = 2 * M_PI * toValue - M_PI_2;
@@ -117,9 +111,29 @@ static CGFloat kProgressLineWidth = 5.;
     // Experiment with timing to get the appearence to look the way you want
     drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
+    drawAnimation.delegate = self;
+    
     // Add the animation to the circle
     [circle addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
-    _progress = toValue;
+}
+
+- (BOOL)animationHasCompleted {
+    return (_progress == _latestToValue);
+}
+
+
+#pragma mark - CAAnimationDelegate
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    _isAnimationInProgress = NO;
+    _progress = _temporaryToValue;
+    if (self.animationHasCompleted) {
+        if (_animationCompletionCallBack) {
+            _animationCompletionCallBack(self);
+        }
+    } else {
+        [self setProgress:_latestToValue];
+    }
 }
 
 @end

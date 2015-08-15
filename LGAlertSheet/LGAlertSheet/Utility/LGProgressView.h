@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@class LGProgressView;
+
+typedef void(^LGPVAnimationCompletionCallBack)(LGProgressView *);
+
+
+
 @interface LGProgressView : UIView
 
 @property (nonatomic, getter = currentProgress) CGFloat progress;
+
+@property (nonatomic, assign)                   BOOL    animationHasCompleted;
+
+@property (nonatomic, copy) LGPVAnimationCompletionCallBack animationCompletionCallBack;
 
 @end
