@@ -105,6 +105,8 @@ static dispatch_semaphore_t show_animation_semaphore;
         [alert.otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
         alert.cancelButtonBlock = cancelButtonBlock;
         alert.textFieldBlock = textFieldBlock;
+
+        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:alert selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
         
@@ -293,23 +295,26 @@ static dispatch_semaphore_t show_animation_semaphore;
 #ifndef LG_APP_EXTENSION
 - (UIWindow *)suitableWindowToShowAlertView {
     
-    /**
-     *  If the topmost window is keyboard window, the superView is keyboard window
-     *  otherwise, the superView is keywindow
-     *  We are doing this because in iOS7, UIAlertView and UIAcionSheet's windows
-     *  are not in the UIApplication.sharedApplication.windows array, but they are
-     *  set as keyWindow. So we cannot always use topmost window as default superview
-     */
-    UIWindow *topMostWindow = UIApplication.sharedApplication.windows.lastObject;
-    BOOL windowOnMainScreen = topMostWindow.screen == UIScreen.mainScreen;
-    BOOL windowIsVisible = !topMostWindow.hidden && topMostWindow.alpha > 0;
-    BOOL keyboardIsActive = ([self visibleKeyboardHeight] > 0);
-    
-    NSLog(@"visible keyboard height:%f", [self visibleKeyboardHeight]);
-    
-    if (windowOnMainScreen && windowIsVisible && keyboardIsActive && [self windowIsKeyboard:topMostWindow]) {
-        NSLog(@"superView: %@", topMostWindow);
-        return topMostWindow;
+    if (!_textField) {
+        /**
+         *  We want the alert view to be exclusively on top. So keyboard window is considered.
+         *  Meanwhile, UIAlertView and UIAcionSheet's windows are not in the
+         *  UIApplication.sharedApplication.windows array, but they are set as keyWindow.
+         *  So we cannot always use topmost window as default superview.
+         *  Showing alert view with a textField when the keyboard is already in signt is weird.
+         *  So we dismiss the keyboard before alert view is shown.
+         */
+        UIWindow *topMostWindow = UIApplication.sharedApplication.windows.lastObject;
+        BOOL windowOnMainScreen = topMostWindow.screen == UIScreen.mainScreen;
+        BOOL windowIsVisible = !topMostWindow.hidden && topMostWindow.alpha > 0;
+        
+        if (windowOnMainScreen
+            && windowIsVisible
+            && [self windowIsKeyboard:topMostWindow]) {
+            return topMostWindow;
+        }
+    } else {
+        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
     }
     
     return [[UIApplication sharedApplication] keyWindow];
@@ -369,21 +374,23 @@ static dispatch_semaphore_t show_animation_semaphore;
 }
 
 - (void)addToSuperView {
+    
+    CGRect rect = (CGRect){.origin = CGPointZero, .size = self.superView.frame.size};
+    
 #ifndef LGAS_APP_EXTENSIONS
     if ([self.superView isKindOfClass:[UIWindow class]] && ![self windowIsKeyboard:self.superView] &&
         [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
         [self statusBarOrientationChange:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    } else if ([self windowIsKeyboard:self.superView]) {
+        if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+            rect.size = self.superView.bounds.size;
+        }
     }
 #endif
     
-    self.frame = (CGRect){.origin = CGPointZero, .size = self.superView.frame.size};
-    
-    if ([self windowIsKeyboard:self.superView]) {
-        [self.superView insertSubview:self atIndex:0];
-    } else {
-        [self.superView addSubview:self];
-    }
+    self.frame = rect;
+    [self.superView addSubview:self];
 }
 
 - (void)performShowAnimation:(void (^)())completion {
@@ -525,15 +532,6 @@ static dispatch_semaphore_t show_animation_semaphore;
     return YES;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if ([self windowIsKeyboard:self.superView]) {
-        UIView *bottomView = [self.superView.subviews firstObject];
-        [self.superView insertSubview:self belowSubview:bottomView];
-    }
-    
-    return YES;
-}
-
 
 #pragma mark - UIKeyboardWillChangeFrameNotification
 
@@ -570,25 +568,13 @@ static dispatch_semaphore_t show_animation_semaphore;
             _containerViewCenterYOffset.constant = keyboardHeight / 2;
             _containerViewCenterXOffset.constant = 0;
         } else if (orientation == UIInterfaceOrientationLandscapeLeft) {
-            if ([self windowIsKeyboard:self.superView]) {
-                keyboardHeight = self.frame.size.height - keyboardRect.origin.x;
-                _containerViewCenterYOffset.constant = keyboardHeight / 2;
-                _containerViewCenterXOffset.constant = 0;
-            } else {
-                keyboardHeight = self.frame.size.width - keyboardRect.origin.x;
-                _containerViewCenterXOffset.constant = keyboardHeight / 2;
-                _containerViewCenterYOffset.constant = 0;
-            }
+            keyboardHeight = self.frame.size.width - keyboardRect.origin.x;
+            _containerViewCenterXOffset.constant = keyboardHeight / 2;
+            _containerViewCenterYOffset.constant = 0;
         } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-            if ([self windowIsKeyboard:self.superView]) {
-                keyboardHeight = CGRectGetMaxX(keyboardRect);
-                _containerViewCenterYOffset.constant = keyboardHeight / 2;
-                _containerViewCenterXOffset.constant = 0;
-            } else {
-                keyboardHeight = CGRectGetMaxX(keyboardRect);
-                _containerViewCenterXOffset.constant = -keyboardHeight / 2;
-                _containerViewCenterYOffset.constant = 0;
-            }
+            keyboardHeight = CGRectGetMaxX(keyboardRect);
+            _containerViewCenterXOffset.constant = -keyboardHeight / 2;
+            _containerViewCenterYOffset.constant = 0;
         } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
             keyboardHeight = CGRectGetMaxY(keyboardRect);
             _containerViewCenterYOffset.constant = -keyboardHeight / 2;
@@ -660,26 +646,6 @@ static dispatch_semaphore_t show_animation_semaphore;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self endEditing:YES];
-}
-
-- (CGFloat)visibleKeyboardHeight {
-#if !defined(LGAS_APP_EXTENSIONS)
-
-    UIWindow *keyboardWindow = [[[UIApplication sharedApplication] windows] lastObject];
-    
-    for (__strong UIView *possibleKeyboard in [keyboardWindow subviews]) {
-        if ([possibleKeyboard isKindOfClass:NSClassFromString(@"UIPeripheralHostView")] || [possibleKeyboard isKindOfClass:NSClassFromString(@"UIKeyboard")]) {
-            return CGRectGetHeight(possibleKeyboard.bounds);
-        } else if ([possibleKeyboard isKindOfClass:NSClassFromString(@"UIInputSetContainerView")]) {
-            for (__strong UIView *possibleKeyboardSubview in [possibleKeyboard subviews]) {
-                if ([possibleKeyboardSubview isKindOfClass:NSClassFromString(@"UIInputSetHostView")]) {
-                    return CGRectGetHeight(possibleKeyboardSubview.bounds);
-                }
-            }
-        }
-    }
-#endif
-    return 0;
 }
 
 

@@ -117,5 +117,18 @@
     [LGAlertView showAlertWithTitle:@"Title" message:@"Message" cancelButtonTitle:@"Cancel" otherButtonTitle:@"OK" cancelButtonBlock:nil textFieldBlock:nil];
 
 }
+- (IBAction)didClickNormalAlert:(id)sender {
+    
+    [LGAlertView showAlertWithTitleImage:nil
+                                   title:@"This is Title"
+                                 message:@"This is message"
+                       cancelButtonTitle:@"OK, I know"
+                        otherButtonTitle:@"Please don't"
+                       cancelButtonBlock:nil
+                        otherButtonBlock:^(LGAlertView *alertView) {
+                            [alertView showErrorMessage:@"Wrong\nWrong\nWrong Password" animated:YES];
+                        }];
+
+}
 
 @end

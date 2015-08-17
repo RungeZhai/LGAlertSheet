@@ -12,7 +12,6 @@
 		19B1A4831B79EC740052CE2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4821B79EC740052CE2A /* ViewController.m */; };
 		19B1A4861B79EC740052CE2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4841B79EC740052CE2A /* Main.storyboard */; };
 		19B1A4881B79EC740052CE2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4871B79EC740052CE2A /* Images.xcassets */; };
-		19B1A48B1B79EC740052CE2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4891B79EC740052CE2A /* LaunchScreen.xib */; };
 		19B1A4971B79EC740052CE2A /* LGAlertSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4961B79EC740052CE2A /* LGAlertSheetTests.m */; };
 		19B1A4AB1B79F10D0052CE2A /* LGActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B1A4A21B79F10D0052CE2A /* LGActionSheet.m */; };
 		19B1A4AC1B79F10D0052CE2A /* LGActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B1A4A31B79F10D0052CE2A /* LGActionSheet.xib */; };
@@ -53,7 +52,6 @@
 		19B1A4821B79EC740052CE2A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19B1A4851B79EC740052CE2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19B1A4871B79EC740052CE2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		19B1A48A1B79EC740052CE2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		19B1A4901B79EC740052CE2A /* LGAlertSheetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LGAlertSheetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B1A4951B79EC740052CE2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B1A4961B79EC740052CE2A /* LGAlertSheetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGAlertSheetTests.m; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				19B1A4821B79EC740052CE2A /* ViewController.m */,
 				19B1A4841B79EC740052CE2A /* Main.storyboard */,
 				19B1A4871B79EC740052CE2A /* Images.xcassets */,
-				19B1A4891B79EC740052CE2A /* LaunchScreen.xib */,
 				19B1A47A1B79EC740052CE2A /* Supporting Files */,
 			);
 			path = LGAlertSheet;
@@ -296,7 +293,6 @@
 				19B1A4B11B79F10D0052CE2A /* LGProgressAlertView.xib in Resources */,
 				19B1A4AC1B79F10D0052CE2A /* LGActionSheet.xib in Resources */,
 				19B1A4861B79EC740052CE2A /* Main.storyboard in Resources */,
-				19B1A48B1B79EC740052CE2A /* LaunchScreen.xib in Resources */,
 				19B1A4881B79EC740052CE2A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,14 +354,6 @@
 				19B1A4851B79EC740052CE2A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		19B1A4891B79EC740052CE2A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19B1A48A1B79EC740052CE2A /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
