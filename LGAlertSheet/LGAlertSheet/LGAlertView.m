@@ -415,8 +415,8 @@ static dispatch_semaphore_t show_animation_semaphore;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             CGFloat transitionDuration1 = .5;
-            CGFloat transitionDuration2 = .25;
-            CGFloat transitionDelay2 = .3;
+            CGFloat transitionDuration2 = .275;
+            CGFloat transitionDelay2 = .275;
             
             // 1. Expand progress view, hide progress related views
             [UIView animateWithDuration:transitionDuration1
