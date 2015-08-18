@@ -19,10 +19,14 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
 @interface LGAlertView : UIView
 
 /**
- *  If you don't set superView, the superView is:
+ *  If you don't set superView, the superView by default is:
  *  1. keyboard window, if the topmost window is keyboard;
  *  2. keyWindow, if the topmost window is not keyboard.
  *  Otherwise, you MUST set it BEFORE alertView has shown.
+ *
+ *  For extensions, you HAVE TO:
+ *  1. define MACRO: LGAS_APP_EXTENSIONS
+ *  2. manually set the superView before calling show.
  */
 @property (weak, nonatomic)          UIView           *superView;
 
