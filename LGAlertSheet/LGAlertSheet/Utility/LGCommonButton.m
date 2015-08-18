@@ -16,13 +16,11 @@
 
 @implementation LGCommonButton
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
     
-    UIColor *normalColor = self.backgroundColor;
-    
-    UIColor *highlightedColor = [normalColor maskByColor:[UIColor colorWithWhite:0 alpha:.2f]];
-    UIColor *disabledColor = [normalColor maskByColor:[UIColor colorWithWhite:1 alpha:.4f]];
+    UIColor *highlightedColor = [backgroundColor maskByColor:[UIColor colorWithWhite:0 alpha:.2f]];
+    UIColor *disabledColor = [backgroundColor maskByColor:[UIColor colorWithWhite:1 alpha:.4f]];
     
     [self setBackgroundImage:[UIImage imageWithColor:highlightedColor] forState:UIControlStateHighlighted];
     [self setBackgroundImage:[UIImage imageWithColor:disabledColor] forState:UIControlStateDisabled];

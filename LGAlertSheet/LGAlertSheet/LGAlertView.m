@@ -164,22 +164,11 @@ static dispatch_semaphore_t show_animation_semaphore;
             alert.messageLabelTopSpaceToTitleLabel.constant = 0;
         }
         alert.messageLabel.text = message;
-        if (!cancelButtonTitle) {
-            if (otherButtonTitle) {
-                cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
-            } else {
-                cancelButtonTitle = NSLocalizedString(@"OK", nil);
-            }
-        }
-        if (otherButtonTitle) {
-            [alert.cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            [alert.otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
-        } else {
-            [alert.okButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            alert.okButton.hidden = NO;
-        }
-        alert.cancelButtonBlock = cancelButtonBlock;
-        alert.otherButtonBlock = otherButtonBlock;
+        
+        [alert configCancelButtonTitle:cancelButtonTitle
+                      otherButtonTitle:otherButtonTitle
+                     cancelButtonBlock:cancelButtonBlock
+                      otherButtonBlock:otherButtonBlock];
         
         [alert configCommonProperties];
     }
@@ -219,22 +208,11 @@ static dispatch_semaphore_t show_animation_semaphore;
         alert.circularProgressBGImageView.image = inProgressImage;
         alert.completionImage = completionImage;
         alert.messageLabel.text = message;
-        if (!cancelButtonTitle) {
-            if (otherButtonTitle) {
-                cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
-            } else {
-                cancelButtonTitle = NSLocalizedString(@"OK", nil);
-            }
-        }
-        if (otherButtonTitle) {
-            [alert.cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            [alert.otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
-        } else {
-            [alert.okButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-            alert.okButton.hidden = NO;
-        }
-        alert.cancelButtonBlock = cancelButtonBlock;
-        alert.otherButtonBlock = otherButtonBlock;
+        
+        [alert configCancelButtonTitle:cancelButtonTitle
+                      otherButtonTitle:otherButtonTitle
+                     cancelButtonBlock:cancelButtonBlock
+                      otherButtonBlock:otherButtonBlock];
         
         [alert configCommonProperties];
     }
@@ -266,6 +244,33 @@ static dispatch_semaphore_t show_animation_semaphore;
                                                object:nil];
 }
 
+- (void)configCancelButtonTitle:(NSString *)cancelButtonTitle
+               otherButtonTitle:(NSString *)otherButtonTitle
+              cancelButtonBlock:(LGAlertViewCancelBlock)cancelButtonBlock
+               otherButtonBlock:(LGAlertViewOtherBlock)otherButtonBlock {
+    if (!cancelButtonTitle && !otherButtonTitle) {
+        [_okButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
+        _cancelButtonBlock = cancelButtonBlock;
+        _okButton.hidden = NO;
+    } else if (!cancelButtonTitle && otherButtonTitle) {
+        [_okButton setTitle:otherButtonTitle forState:UIControlStateNormal];
+        _otherButtonBlock = otherButtonBlock;
+        [_okButton addTarget:self action:@selector(didClickOther:) forControlEvents:UIControlEventTouchUpInside];
+        _okButton.hidden = NO;
+    } else if (cancelButtonTitle && !otherButtonTitle) {
+        [_okButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+        _okButton.backgroundColor = _cancelButton.backgroundColor;
+        _cancelButtonBlock = cancelButtonBlock;
+        _okButton.hidden = NO;
+    } else {
+        [_cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+        [_otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
+        _cancelButtonBlock = cancelButtonBlock;
+        _otherButtonBlock = otherButtonBlock;
+        [_okButton removeFromSuperview];
+    }
+}
+
 - (void)dealloc {
     // Caution: Donnot use properties or instance variable in dealloc with ARC
     // Because they might have been dealloced first and set to nil
@@ -290,7 +295,7 @@ static dispatch_semaphore_t show_animation_semaphore;
 }
 
 
-#pragma mark - getter
+#pragma mark - getter & setter
 
 // Caution: with a upper case "V", superview is a system built-in property.
 - (UIView *)superView {
@@ -329,7 +334,10 @@ static dispatch_semaphore_t show_animation_semaphore;
             return topMostWindow;
         }
     } else {
-        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder)
+                                                   to:nil
+                                                 from:nil
+                                             forEvent:nil];
     }
     
     return [[UIApplication sharedApplication] keyWindow];
@@ -540,18 +548,21 @@ static dispatch_semaphore_t show_animation_semaphore;
 #pragma mark - dismiss
 
 - (void)dismissSelf {
-    self.cancelButtonBlock = self.otherButtonBlock = self.textFieldBlock = NULL;
     [self removeFromSuperview];
+    self.cancelButtonBlock = self.otherButtonBlock = self.textFieldBlock = NULL;
     [self.stack removeObject:self];
 }
 
 - (void)dismiss {
-    // 1. dismiss self
-    [self dismissSelf];
-    
-    // 2. show the youngest sibling older than self
-    typeof(self) nextTopMostAlert = [self.stack lastNonNullableObject];
-    [nextTopMostAlert show];
+    // Make this un-re-enterable for each alert
+    if (self.superview) {
+        // 1. dismiss self
+        [self dismissSelf];
+        
+        // 2. show the youngest sibling older than self
+        typeof(self) nextTopMostAlert = [self.stack lastNonNullableObject];
+        [nextTopMostAlert show];
+    }
 }
 
 
