@@ -335,11 +335,6 @@ static dispatch_semaphore_t show_animation_semaphore;
             && [self windowIsKeyboard:topMostWindow]) {
             return topMostWindow;
         }
-    } else {
-        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder)
-                                                   to:nil
-                                                 from:nil
-                                             forEvent:nil];
     }
     
     return [[UIApplication sharedApplication] keyWindow];
