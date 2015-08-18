@@ -136,6 +136,7 @@
                 <outlet property="containerViewCenterXOffset" destination="b6c-7d-nST" id="gLc-p3-WRZ"/>
                 <outlet property="containerViewCenterYOffset" destination="mAC-qW-Mdq" id="BnU-TO-nnJ"/>
                 <outlet property="messageLabel" destination="ehq-GU-MVV" id="cfo-bj-z9N"/>
+                <outlet property="messageLabelTopSpaceToTitleLabel" destination="bIy-YP-VQs" id="KMc-lJ-6dQ"/>
                 <outlet property="otherButton" destination="7Sm-bZ-T6f" id="QxE-r7-3AT"/>
                 <outlet property="textField" destination="BaH-dF-hNc" id="gUX-iA-sjj"/>
                 <outlet property="titleLabel" destination="zAR-Op-t0F" id="MAQ-WU-bPs"/>

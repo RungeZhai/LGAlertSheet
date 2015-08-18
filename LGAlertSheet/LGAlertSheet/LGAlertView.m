@@ -11,6 +11,12 @@
 #import "LGProgressView.h"
 #import "NSPointerArray+AbstractionHelpers.h"
 
+#define LGAS_SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define LGAS_SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define LGAS_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define LGAS_SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define LGAS_SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
 
 static NSMutableDictionary *stacks;
 static dispatch_semaphore_t show_animation_semaphore;
@@ -28,6 +34,7 @@ static dispatch_semaphore_t show_animation_semaphore;
  *  For Basic AlertView
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTopSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageLabelTopSpaceToTitleLabel;
 
 /**
  *  For Progress Alert View completion transition
@@ -97,6 +104,9 @@ static dispatch_semaphore_t show_animation_semaphore;
     
     if (alert) {
         alert.titleLabel.text = title;
+        if (!title) {
+            alert.messageLabelTopSpaceToTitleLabel.constant = 0;
+        }
         alert.messageLabel.text = message;
         if (!cancelButtonTitle) {
             cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
@@ -150,7 +160,10 @@ static dispatch_semaphore_t show_animation_semaphore;
             alert.titleImageView.image = titleImage;
         }
         alert.titleLabel.text = title;
-        alert.messageLabel.text = title ? message : [message stringByAppendingString:@"\n"];// just for good-looking when there is no title
+        if (!title) {
+            alert.messageLabelTopSpaceToTitleLabel.constant = 0;
+        }
+        alert.messageLabel.text = message;
         if (!cancelButtonTitle) {
             if (otherButtonTitle) {
                 cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
@@ -284,7 +297,9 @@ static dispatch_semaphore_t show_animation_semaphore;
 #ifdef LGAS_APP_EXTENSIONS
     if (!_superView) {
         [NSException raise:@"LGAlertView: Superview must be set mannually in extensions"
-                    format:@"To use LGAlertView in extensions, you have to: 1. Define Macro LGAS_APP_EXTENSIONS 2. Init an alertView, set its superView and call show"];
+                    format:@"To use LGAlertView in extensions, you have to: \n\
+         1. Define Macro LGAS_APP_EXTENSIONS \n\
+         2. Init an alertView, set its superView and call show"];
     }
     return _superView;
 #else
@@ -378,10 +393,15 @@ static dispatch_semaphore_t show_animation_semaphore;
     CGRect rect = (CGRect){.origin = CGPointZero, .size = self.superView.frame.size};
     
 #ifndef LGAS_APP_EXTENSIONS
-    if ([self.superView isKindOfClass:[UIWindow class]] && ![self windowIsKeyboard:self.superView] &&
-        [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
+    if ([self.superView isKindOfClass:[UIWindow class]]
+        && ![self windowIsKeyboard:self.superView]
+        && LGAS_SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+        
         [self statusBarOrientationChange:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(statusBarOrientationChange:)
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object:nil];
     } else if ([self windowIsKeyboard:self.superView]) {
         if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
             rect.size = self.superView.bounds.size;
@@ -400,12 +420,17 @@ static dispatch_semaphore_t show_animation_semaphore;
     
     self.containerView.transform = CGAffineTransformScale(originalTransform, .1f, .1f);
     
-    [UIView animateWithDuration:.35f delay:0 usingSpringWithDamping:.8f initialSpringVelocity:20 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.alpha = 1;
-        self.containerView.transform = originalTransform;
-    } completion:^(BOOL finished) {
-        if (completion) completion();
-    }];
+    [UIView animateWithDuration:.35f
+                          delay:0
+         usingSpringWithDamping:.8f
+          initialSpringVelocity:20
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.alpha = 1;
+                         self.containerView.transform = originalTransform;
+                     } completion:^(BOOL finished) {
+                         if (completion) completion();
+                     }];
 }
 
 - (void)animateToCompletionState {
@@ -480,7 +505,11 @@ static dispatch_semaphore_t show_animation_semaphore;
           animated:animated];
 }
 
-- (void)setLabel:(UILabel *)label withMessage:(NSString *)message textColor:(UIColor *)textColor isError:(BOOL)isError animated:(BOOL)animated {
+- (void)setLabel:(UILabel *)label
+     withMessage:(NSString *)message
+       textColor:(UIColor *)textColor
+         isError:(BOOL)isError
+        animated:(BOOL)animated {
     
     void (^block)() = ^(){
         if (textColor) {
@@ -490,14 +519,18 @@ static dispatch_semaphore_t show_animation_semaphore;
     };
     
     if (animated) {
-        [UIView transitionWithView:label duration:.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            block();
-            [self layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            if (isError) {
-                [label shake:8 withDelta:label.bounds.size.width / 10 speed:.05f];
-            }
-        }];
+        [UIView transitionWithView:label
+                          duration:.15
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            block();
+                            [self layoutIfNeeded];
+                        }
+                        completion:^(BOOL finished) {
+                            if (isError) {
+                                [label shake:8 withDelta:label.bounds.size.width / 10 speed:.05f];
+                            }
+                        }];
     } else {
         block();
     }
@@ -562,7 +595,7 @@ static dispatch_semaphore_t show_animation_semaphore;
 #ifdef LGAS_APP_EXTENSIONS
     _containerViewCenterYOffset.constant = keyboardHeight / 2;
 #else
-    if ([self.superView isKindOfClass:[UIWindow class]] && [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending) {
+    if ([self.superView isKindOfClass:[UIWindow class]] && LGAS_SYSTEM_VERSION_LESS_THAN(@"8.0")) {
         UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
         if (orientation == UIInterfaceOrientationPortrait) {
             _containerViewCenterYOffset.constant = keyboardHeight / 2;

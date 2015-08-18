@@ -19,8 +19,10 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
 @interface LGAlertView : UIView
 
 /**
- * If you don't set superView, the superView is keyWindow by default.
- * Otherwise, you MUST set it BEFORE alertView has shown.
+ *  If you don't set superView, the superView is:
+ *  1. keyboard window, if the topmost window is keyboard;
+ *  2. keyWindow, if the topmost window is not keyboard.
+ *  Otherwise, you MUST set it BEFORE alertView has shown.
  */
 @property (weak, nonatomic)          UIView           *superView;
 

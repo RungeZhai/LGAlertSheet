@@ -132,6 +132,7 @@
                 <outlet property="cancelButton" destination="EkT-P3-FFF" id="g5E-qU-cKE"/>
                 <outlet property="containerView" destination="wgX-wm-Dri" id="bRi-8Y-igu"/>
                 <outlet property="messageLabel" destination="z7x-11-drG" id="Yac-p8-zKM"/>
+                <outlet property="messageLabelTopSpaceToTitleLabel" destination="ee2-J1-t11" id="8oL-YP-fOq"/>
                 <outlet property="okButton" destination="QfU-kH-kyM" id="8nQ-HG-7ai"/>
                 <outlet property="otherButton" destination="a0T-yT-UEs" id="ROm-Ja-MLi"/>
                 <outlet property="titleImageView" destination="7tv-sH-rQy" id="drc-W2-EmT"/>
