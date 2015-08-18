@@ -115,8 +115,10 @@ static dispatch_semaphore_t show_animation_semaphore;
         [alert.otherButton setTitle:otherButtonTitle forState:UIControlStateNormal];
         alert.cancelButtonBlock = cancelButtonBlock;
         alert.textFieldBlock = textFieldBlock;
-
+        
+#ifndef LGAS_APP_EXTENSIONS
         [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+#endif
         
         [[NSNotificationCenter defaultCenter] addObserver:alert selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
         
@@ -312,7 +314,7 @@ static dispatch_semaphore_t show_animation_semaphore;
 #endif
 }
 
-#ifndef LG_APP_EXTENSION
+#ifndef LGAS_APP_EXTENSIONS
 - (UIWindow *)suitableWindowToShowAlertView {
     
     if (!_textField) {
