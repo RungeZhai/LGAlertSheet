@@ -11,11 +11,7 @@
 #import "LGProgressView.h"
 #import "NSPointerArray+AbstractionHelpers.h"
 
-#define LGAS_SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define LGAS_SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define LGAS_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define LGAS_SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define LGAS_SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define LGAS_SYSTEM_VERSION_LESS_THAN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 
 static NSMutableDictionary *stacks;
@@ -663,7 +659,8 @@ static dispatch_semaphore_t show_animation_semaphore;
 
 /**
  *  There are 2 triggers of dismissing alertView
- *  1. user click the buttons & 2. application enter background
+ *  1. user click the buttons 
+ *  2. application enter background
  */
 - (IBAction)didClickCancel:(id)sender {
     __weak typeof(self) weakSelf = self;
