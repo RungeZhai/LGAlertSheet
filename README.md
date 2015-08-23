@@ -55,58 +55,58 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
                       otherButtonBlock:nil];
   ```
 3. Showing AlertView with a TextField:
-
-```
-[LGAlertView showAlertWithTitle:@"This is Title"
-                        message:@"This is message"
-              cancelButtonTitle:@"Cancel"
-               otherButtonTitle:@"OK"
-              cancelButtonBlock:nil
-                 textFieldBlock:^(LGAlertView *alertView) {
-                     [alertView showErrorMessage:@"Wrong Password" animated:YES];
-                 }];
-}
-```
-Here you can show some error message if user's input is not valid with optionally a spring animation.
-
+  
+  ```
+  [LGAlertView showAlertWithTitle:@"This is Title"
+                          message:@"This is message"
+                cancelButtonTitle:@"Cancel"
+                 otherButtonTitle:@"OK"
+                cancelButtonBlock:nil
+                   textFieldBlock:^(LGAlertView *alertView) {
+                       [alertView showErrorMessage:@"Wrong Password" animated:YES];
+                   }];
+  }
+  ```
+  Here you can show some error message if user's input is not valid with optionally a spring animation.
+  
 4. Showing AlertView with a progress view:
-
-```
-LGAlertView *alertView = [LGAlertView alertWithInProgressImage:[UIImage imageNamed:@"import_in_progress"]
-                                               completionImage:[UIImage imageNamed:@"import_done"]
-                                                       message:@"This is a long long long long long long message"
-                                             cancelButtonTitle:@"OK, I know"
-                                              otherButtonTitle:@"Please don't"
-                                             cancelButtonBlock:nil
-                                              otherButtonBlock:nil];
-    
-[alertView show];
-```
-You can call `[alertView animateToCompletionState];` if the progress is completed, or set `alertView.progressView`'s `animationCompletionCallBack` and in that block call `[alertView animateToCompletionState];` so that it will animate to completion state once the progress is completed.
-
+  
+  ```
+  LGAlertView *alertView = [LGAlertView alertWithInProgressImage:[UIImage imageNamed:@"import_in_progress"]
+                                                 completionImage:[UIImage imageNamed:@"import_done"]
+                                                         message:@"This is a long long long long long long message"
+                                               cancelButtonTitle:@"OK, I know"
+                                                otherButtonTitle:@"Please don't"
+                                               cancelButtonBlock:nil
+                                                otherButtonBlock:nil];
+      
+  [alertView show];
+  ```
+  You can call `[alertView animateToCompletionState];` if the progress is completed, or set `alertView.progressView`'s `animationCompletionCallBack` and in that block call `[alertView animateToCompletionState];` so that it will animate to completion state once the progress is completed.
+  
 5. Showing ActionSheet with 1 options:
-
-```
-[LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
-                                   otherButtonTitle:@"OK"
-                                  cancelButtonBlock:nil
-                                   otherButtonBlock:nil
-                                           fromView:nil];
-```
-If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions ss we cannot us UIWindow in extensions.
-
+  
+  ```
+  [LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
+                                     otherButtonTitle:@"OK"
+                                    cancelButtonBlock:nil
+                                     otherButtonBlock:nil
+                                             fromView:nil];
+  ```
+  If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions ss we cannot us UIWindow in extensions.
+  
 6. Showing ActionSheet with 2 options:
-
-```
-[LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
-                                  otherButtonTitle0:@"Option 1"
-                                  otherButtonTitle1:@"Option 2"
-                                  cancelButtonBlock:nil
-                                  otherButtonBlock0:nil
-                                  otherButtonBlock1:nil
-                                           fromView:nil];
-```
-
+  
+  ```
+  [LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
+                                    otherButtonTitle0:@"Option 1"
+                                    otherButtonTitle1:@"Option 2"
+                                    cancelButtonBlock:nil
+                                    otherButtonBlock0:nil
+                                    otherButtonBlock1:nil
+                                             fromView:nil];
+  ```
+  
 ### Extensions
 To use LGAlertSheet in extensions, you have to: 
 
