@@ -13,11 +13,36 @@
 /**
  *  Adds pointer to the given object to the array.
  *
- *  @param object Object whose pointer needs to be added to the array.
- *  If a pointer to this object already exists in the array, you get a duplicate.
+ *  @param anObject Object whose pointer needs to be added to the array.
+ *  If a pointer to this object already exists in the array, you get a Duplicate.
  *  Call containsObject first if you don't want that to happen.
  */
-- (void)addObject:(id)object;
+- (void)addObject:(id)anObject;
+
+- (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
+
+- (void)removeLastObject;
+
+- (void)removeObjectAtIndex:(NSUInteger)idx;
+
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
+
+- (void)addObjectsFromArray:(NSArray *)otherArray;
+
+- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+
+- (void)removeAllObjects;
+
+- (void)removeObjectsAtIndexes:(NSIndexSet *)indexes;
+
+/**
+ *  Retrive lowest index of the given object. 
+ *  If none of the objects in the arra is equal to anObject, returns NSNotFound.
+ *  @param anObject Object to be located in the array
+ */
+- (NSUInteger)indexOfObject:(id)anObject;
+
+- (NSIndexSet *)indexesOfObject:(id)anObject;
 
 /**
  *  Checks if pointer to the given object is present in the array.
@@ -35,8 +60,20 @@
  */
 - (void)removeObject:(id)object;
 
+
+
 - (void)removeAllNulls;
 
+- (id)firstNonNullableObject;
+
 - (id)lastNonNullableObject;
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
+
+- (id)firstObject;
+
+- (id)lastObject;
 
 @end
