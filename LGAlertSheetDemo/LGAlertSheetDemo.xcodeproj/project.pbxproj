@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19F0F97E1B89B06B003E036E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0F97D1B89B06B003E036E /* main.m */; };
+		19F0F9811B89B06B003E036E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0F9801B89B06B003E036E /* AppDelegate.m */; };
+		19F0F9841B89B06B003E036E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0F9831B89B06B003E036E /* ViewController.m */; };
+		19F0F9871B89B06B003E036E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F0F9851B89B06B003E036E /* Main.storyboard */; };
+		19F0F9891B89B06B003E036E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F0F9881B89B06B003E036E /* Images.xcassets */; };
+		19F0F98C1B89B06B003E036E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0F98A1B89B06B003E036E /* LaunchScreen.xib */; };
+		19F0F9981B89B06B003E036E /* LGAlertSheetDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0F9971B89B06B003E036E /* LGAlertSheetDemoTests.m */; };
+		19F0FA2E1B89B249003E036E /* LGActionSheet_2Opt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA251B89B249003E036E /* LGActionSheet_2Opt.xib */; };
+		19F0FA2F1B89B249003E036E /* LGActionSheet_2Opt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA251B89B249003E036E /* LGActionSheet_2Opt.xib */; };
+		19F0FA301B89B249003E036E /* LGActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA271B89B249003E036E /* LGActionSheet.m */; };
+		19F0FA311B89B249003E036E /* LGActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA271B89B249003E036E /* LGActionSheet.m */; };
+		19F0FA321B89B249003E036E /* LGActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA281B89B249003E036E /* LGActionSheet.xib */; };
+		19F0FA331B89B249003E036E /* LGActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA281B89B249003E036E /* LGActionSheet.xib */; };
+		19F0FA341B89B249003E036E /* LGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA2A1B89B249003E036E /* LGAlertView.m */; };
+		19F0FA351B89B249003E036E /* LGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA2A1B89B249003E036E /* LGAlertView.m */; };
+		19F0FA361B89B249003E036E /* LGAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2B1B89B249003E036E /* LGAlertView.xib */; };
+		19F0FA371B89B249003E036E /* LGAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2B1B89B249003E036E /* LGAlertView.xib */; };
+		19F0FA381B89B249003E036E /* LGProgressAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2C1B89B249003E036E /* LGProgressAlertView.xib */; };
+		19F0FA391B89B249003E036E /* LGProgressAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2C1B89B249003E036E /* LGProgressAlertView.xib */; };
+		19F0FA3A1B89B249003E036E /* LGTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2D1B89B249003E036E /* LGTextFieldAlertView.xib */; };
+		19F0FA3B1B89B249003E036E /* LGTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19F0FA2D1B89B249003E036E /* LGTextFieldAlertView.xib */; };
+		19F0FA501B89B258003E036E /* LGCommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA3D1B89B258003E036E /* LGCommonButton.m */; };
+		19F0FA511B89B258003E036E /* LGCommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA3D1B89B258003E036E /* LGCommonButton.m */; };
+		19F0FA521B89B258003E036E /* LGCustomizedCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA3F1B89B258003E036E /* LGCustomizedCornerButton.m */; };
+		19F0FA531B89B258003E036E /* LGCustomizedCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA3F1B89B258003E036E /* LGCustomizedCornerButton.m */; };
+		19F0FA541B89B258003E036E /* LGLocalizedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA411B89B258003E036E /* LGLocalizedButton.m */; };
+		19F0FA551B89B258003E036E /* LGLocalizedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA411B89B258003E036E /* LGLocalizedButton.m */; };
+		19F0FA561B89B258003E036E /* LGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA431B89B258003E036E /* LGProgressView.m */; };
+		19F0FA571B89B258003E036E /* LGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA431B89B258003E036E /* LGProgressView.m */; };
+		19F0FA581B89B258003E036E /* LGRoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA451B89B258003E036E /* LGRoundCornerButton.m */; };
+		19F0FA591B89B258003E036E /* LGRoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA451B89B258003E036E /* LGRoundCornerButton.m */; };
+		19F0FA5A1B89B258003E036E /* LGRoundCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA471B89B258003E036E /* LGRoundCornerView.m */; };
+		19F0FA5B1B89B258003E036E /* LGRoundCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA471B89B258003E036E /* LGRoundCornerView.m */; };
+		19F0FA5C1B89B258003E036E /* NSPointerArray+AbstractionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA491B89B258003E036E /* NSPointerArray+AbstractionHelpers.m */; };
+		19F0FA5D1B89B258003E036E /* NSPointerArray+AbstractionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA491B89B258003E036E /* NSPointerArray+AbstractionHelpers.m */; };
+		19F0FA5E1B89B258003E036E /* UIColor+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4B1B89B258003E036E /* UIColor+Components.m */; };
+		19F0FA5F1B89B258003E036E /* UIColor+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4B1B89B258003E036E /* UIColor+Components.m */; };
+		19F0FA601B89B258003E036E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4D1B89B258003E036E /* UIImage+Color.m */; };
+		19F0FA611B89B258003E036E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4D1B89B258003E036E /* UIImage+Color.m */; };
+		19F0FA621B89B258003E036E /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4F1B89B258003E036E /* UIView+Shake.m */; };
+		19F0FA631B89B258003E036E /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0FA4F1B89B258003E036E /* UIView+Shake.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19F0F9921B89B06B003E036E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19F0F9701B89B06B003E036E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19F0F9771B89B06B003E036E;
+			remoteInfo = LGAlertSheetDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19F0F9781B89B06B003E036E /* LGAlertSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGAlertSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F0F97C1B89B06B003E036E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19F0F97D1B89B06B003E036E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		19F0F97F1B89B06B003E036E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		19F0F9801B89B06B003E036E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		19F0F9821B89B06B003E036E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		19F0F9831B89B06B003E036E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		19F0F9861B89B06B003E036E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		19F0F9881B89B06B003E036E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		19F0F98B1B89B06B003E036E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		19F0F9911B89B06B003E036E /* LGAlertSheetDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LGAlertSheetDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F0F9961B89B06B003E036E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19F0F9971B89B06B003E036E /* LGAlertSheetDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGAlertSheetDemoTests.m; sourceTree = "<group>"; };
+		19F0FA251B89B249003E036E /* LGActionSheet_2Opt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGActionSheet_2Opt.xib; sourceTree = "<group>"; };
+		19F0FA261B89B249003E036E /* LGActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGActionSheet.h; sourceTree = "<group>"; };
+		19F0FA271B89B249003E036E /* LGActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGActionSheet.m; sourceTree = "<group>"; };
+		19F0FA281B89B249003E036E /* LGActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGActionSheet.xib; sourceTree = "<group>"; };
+		19F0FA291B89B249003E036E /* LGAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGAlertView.h; sourceTree = "<group>"; };
+		19F0FA2A1B89B249003E036E /* LGAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGAlertView.m; sourceTree = "<group>"; };
+		19F0FA2B1B89B249003E036E /* LGAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGAlertView.xib; sourceTree = "<group>"; };
+		19F0FA2C1B89B249003E036E /* LGProgressAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGProgressAlertView.xib; sourceTree = "<group>"; };
+		19F0FA2D1B89B249003E036E /* LGTextFieldAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGTextFieldAlertView.xib; sourceTree = "<group>"; };
+		19F0FA3C1B89B258003E036E /* LGCommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCommonButton.h; sourceTree = "<group>"; };
+		19F0FA3D1B89B258003E036E /* LGCommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCommonButton.m; sourceTree = "<group>"; };
+		19F0FA3E1B89B258003E036E /* LGCustomizedCornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCustomizedCornerButton.h; sourceTree = "<group>"; };
+		19F0FA3F1B89B258003E036E /* LGCustomizedCornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCustomizedCornerButton.m; sourceTree = "<group>"; };
+		19F0FA401B89B258003E036E /* LGLocalizedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLocalizedButton.h; sourceTree = "<group>"; };
+		19F0FA411B89B258003E036E /* LGLocalizedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLocalizedButton.m; sourceTree = "<group>"; };
+		19F0FA421B89B258003E036E /* LGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGProgressView.h; sourceTree = "<group>"; };
+		19F0FA431B89B258003E036E /* LGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGProgressView.m; sourceTree = "<group>"; };
+		19F0FA441B89B258003E036E /* LGRoundCornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRoundCornerButton.h; sourceTree = "<group>"; };
+		19F0FA451B89B258003E036E /* LGRoundCornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRoundCornerButton.m; sourceTree = "<group>"; };
+		19F0FA461B89B258003E036E /* LGRoundCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRoundCornerView.h; sourceTree = "<group>"; };
+		19F0FA471B89B258003E036E /* LGRoundCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRoundCornerView.m; sourceTree = "<group>"; };
+		19F0FA481B89B258003E036E /* NSPointerArray+AbstractionHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+AbstractionHelpers.h"; sourceTree = "<group>"; };
+		19F0FA491B89B258003E036E /* NSPointerArray+AbstractionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+AbstractionHelpers.m"; sourceTree = "<group>"; };
+		19F0FA4A1B89B258003E036E /* UIColor+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Components.h"; sourceTree = "<group>"; };
+		19F0FA4B1B89B258003E036E /* UIColor+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Components.m"; sourceTree = "<group>"; };
+		19F0FA4C1B89B258003E036E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		19F0FA4D1B89B258003E036E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		19F0FA4E1B89B258003E036E /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
+		19F0FA4F1B89B258003E036E /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19F0F9751B89B06B003E036E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19F0F98E1B89B06B003E036E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19F0F96F1B89B06B003E036E = {
+			isa = PBXGroup;
+			children = (
+				19F0F97A1B89B06B003E036E /* LGAlertSheetDemo */,
+				19F0F9941B89B06B003E036E /* LGAlertSheetDemoTests */,
+				19F0F9791B89B06B003E036E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		19F0F9791B89B06B003E036E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19F0F9781B89B06B003E036E /* LGAlertSheetDemo.app */,
+				19F0F9911B89B06B003E036E /* LGAlertSheetDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19F0F97A1B89B06B003E036E /* LGAlertSheetDemo */ = {
+			isa = PBXGroup;
+			children = (
+				19F0FA231B89B1E1003E036E /* LGAlertSheet */,
+				19F0F97F1B89B06B003E036E /* AppDelegate.h */,
+				19F0F9801B89B06B003E036E /* AppDelegate.m */,
+				19F0F9821B89B06B003E036E /* ViewController.h */,
+				19F0F9831B89B06B003E036E /* ViewController.m */,
+				19F0F9851B89B06B003E036E /* Main.storyboard */,
+				19F0F9881B89B06B003E036E /* Images.xcassets */,
+				19F0F98A1B89B06B003E036E /* LaunchScreen.xib */,
+				19F0F97B1B89B06B003E036E /* Supporting Files */,
+			);
+			path = LGAlertSheetDemo;
+			sourceTree = "<group>";
+		};
+		19F0F97B1B89B06B003E036E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				19F0F97C1B89B06B003E036E /* Info.plist */,
+				19F0F97D1B89B06B003E036E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19F0F9941B89B06B003E036E /* LGAlertSheetDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				19F0F9971B89B06B003E036E /* LGAlertSheetDemoTests.m */,
+				19F0F9951B89B06B003E036E /* Supporting Files */,
+			);
+			path = LGAlertSheetDemoTests;
+			sourceTree = "<group>";
+		};
+		19F0F9951B89B06B003E036E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				19F0F9961B89B06B003E036E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19F0FA231B89B1E1003E036E /* LGAlertSheet */ = {
+			isa = PBXGroup;
+			children = (
+				19F0FA251B89B249003E036E /* LGActionSheet_2Opt.xib */,
+				19F0FA261B89B249003E036E /* LGActionSheet.h */,
+				19F0FA271B89B249003E036E /* LGActionSheet.m */,
+				19F0FA281B89B249003E036E /* LGActionSheet.xib */,
+				19F0FA291B89B249003E036E /* LGAlertView.h */,
+				19F0FA2A1B89B249003E036E /* LGAlertView.m */,
+				19F0FA2B1B89B249003E036E /* LGAlertView.xib */,
+				19F0FA2C1B89B249003E036E /* LGProgressAlertView.xib */,
+				19F0FA2D1B89B249003E036E /* LGTextFieldAlertView.xib */,
+				19F0FA241B89B1E1003E036E /* Utility */,
+			);
+			name = LGAlertSheet;
+			path = ../../LGAlertSheet;
+			sourceTree = "<group>";
+		};
+		19F0FA241B89B1E1003E036E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				19F0FA3C1B89B258003E036E /* LGCommonButton.h */,
+				19F0FA3D1B89B258003E036E /* LGCommonButton.m */,
+				19F0FA3E1B89B258003E036E /* LGCustomizedCornerButton.h */,
+				19F0FA3F1B89B258003E036E /* LGCustomizedCornerButton.m */,
+				19F0FA401B89B258003E036E /* LGLocalizedButton.h */,
+				19F0FA411B89B258003E036E /* LGLocalizedButton.m */,
+				19F0FA421B89B258003E036E /* LGProgressView.h */,
+				19F0FA431B89B258003E036E /* LGProgressView.m */,
+				19F0FA441B89B258003E036E /* LGRoundCornerButton.h */,
+				19F0FA451B89B258003E036E /* LGRoundCornerButton.m */,
+				19F0FA461B89B258003E036E /* LGRoundCornerView.h */,
+				19F0FA471B89B258003E036E /* LGRoundCornerView.m */,
+				19F0FA481B89B258003E036E /* NSPointerArray+AbstractionHelpers.h */,
+				19F0FA491B89B258003E036E /* NSPointerArray+AbstractionHelpers.m */,
+				19F0FA4A1B89B258003E036E /* UIColor+Components.h */,
+				19F0FA4B1B89B258003E036E /* UIColor+Components.m */,
+				19F0FA4C1B89B258003E036E /* UIImage+Color.h */,
+				19F0FA4D1B89B258003E036E /* UIImage+Color.m */,
+				19F0FA4E1B89B258003E036E /* UIView+Shake.h */,
+				19F0FA4F1B89B258003E036E /* UIView+Shake.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19F0F9771B89B06B003E036E /* LGAlertSheetDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19F0F99B1B89B06B003E036E /* Build configuration list for PBXNativeTarget "LGAlertSheetDemo" */;
+			buildPhases = (
+				19F0F9741B89B06B003E036E /* Sources */,
+				19F0F9751B89B06B003E036E /* Frameworks */,
+				19F0F9761B89B06B003E036E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LGAlertSheetDemo;
+			productName = LGAlertSheetDemo;
+			productReference = 19F0F9781B89B06B003E036E /* LGAlertSheetDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		19F0F9901B89B06B003E036E /* LGAlertSheetDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19F0F99E1B89B06B003E036E /* Build configuration list for PBXNativeTarget "LGAlertSheetDemoTests" */;
+			buildPhases = (
+				19F0F98D1B89B06B003E036E /* Sources */,
+				19F0F98E1B89B06B003E036E /* Frameworks */,
+				19F0F98F1B89B06B003E036E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19F0F9931B89B06B003E036E /* PBXTargetDependency */,
+			);
+			name = LGAlertSheetDemoTests;
+			productName = LGAlertSheetDemoTests;
+			productReference = 19F0F9911B89B06B003E036E /* LGAlertSheetDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19F0F9701B89B06B003E036E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ZiXuWuYou;
+				TargetAttributes = {
+					19F0F9771B89B06B003E036E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					19F0F9901B89B06B003E036E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 19F0F9771B89B06B003E036E;
+					};
+				};
+			};
+			buildConfigurationList = 19F0F9731B89B06B003E036E /* Build configuration list for PBXProject "LGAlertSheetDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19F0F96F1B89B06B003E036E;
+			productRefGroup = 19F0F9791B89B06B003E036E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19F0F9771B89B06B003E036E /* LGAlertSheetDemo */,
+				19F0F9901B89B06B003E036E /* LGAlertSheetDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19F0F9761B89B06B003E036E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F0FA3A1B89B249003E036E /* LGTextFieldAlertView.xib in Resources */,
+				19F0FA361B89B249003E036E /* LGAlertView.xib in Resources */,
+				19F0FA321B89B249003E036E /* LGActionSheet.xib in Resources */,
+				19F0FA381B89B249003E036E /* LGProgressAlertView.xib in Resources */,
+				19F0F9871B89B06B003E036E /* Main.storyboard in Resources */,
+				19F0FA2E1B89B249003E036E /* LGActionSheet_2Opt.xib in Resources */,
+				19F0F98C1B89B06B003E036E /* LaunchScreen.xib in Resources */,
+				19F0F9891B89B06B003E036E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19F0F98F1B89B06B003E036E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F0FA3B1B89B249003E036E /* LGTextFieldAlertView.xib in Resources */,
+				19F0FA371B89B249003E036E /* LGAlertView.xib in Resources */,
+				19F0FA331B89B249003E036E /* LGActionSheet.xib in Resources */,
+				19F0FA2F1B89B249003E036E /* LGActionSheet_2Opt.xib in Resources */,
+				19F0FA391B89B249003E036E /* LGProgressAlertView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19F0F9741B89B06B003E036E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F0FA561B89B258003E036E /* LGProgressView.m in Sources */,
+				19F0FA301B89B249003E036E /* LGActionSheet.m in Sources */,
+				19F0FA341B89B249003E036E /* LGAlertView.m in Sources */,
+				19F0FA621B89B258003E036E /* UIView+Shake.m in Sources */,
+				19F0FA5C1B89B258003E036E /* NSPointerArray+AbstractionHelpers.m in Sources */,
+				19F0F9841B89B06B003E036E /* ViewController.m in Sources */,
+				19F0FA5A1B89B258003E036E /* LGRoundCornerView.m in Sources */,
+				19F0F9811B89B06B003E036E /* AppDelegate.m in Sources */,
+				19F0FA541B89B258003E036E /* LGLocalizedButton.m in Sources */,
+				19F0FA521B89B258003E036E /* LGCustomizedCornerButton.m in Sources */,
+				19F0FA601B89B258003E036E /* UIImage+Color.m in Sources */,
+				19F0FA5E1B89B258003E036E /* UIColor+Components.m in Sources */,
+				19F0F97E1B89B06B003E036E /* main.m in Sources */,
+				19F0FA581B89B258003E036E /* LGRoundCornerButton.m in Sources */,
+				19F0FA501B89B258003E036E /* LGCommonButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19F0F98D1B89B06B003E036E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F0FA591B89B258003E036E /* LGRoundCornerButton.m in Sources */,
+				19F0FA311B89B249003E036E /* LGActionSheet.m in Sources */,
+				19F0FA531B89B258003E036E /* LGCustomizedCornerButton.m in Sources */,
+				19F0FA5D1B89B258003E036E /* NSPointerArray+AbstractionHelpers.m in Sources */,
+				19F0FA351B89B249003E036E /* LGAlertView.m in Sources */,
+				19F0FA5F1B89B258003E036E /* UIColor+Components.m in Sources */,
+				19F0FA571B89B258003E036E /* LGProgressView.m in Sources */,
+				19F0F9981B89B06B003E036E /* LGAlertSheetDemoTests.m in Sources */,
+				19F0FA551B89B258003E036E /* LGLocalizedButton.m in Sources */,
+				19F0FA611B89B258003E036E /* UIImage+Color.m in Sources */,
+				19F0FA631B89B258003E036E /* UIView+Shake.m in Sources */,
+				19F0FA5B1B89B258003E036E /* LGRoundCornerView.m in Sources */,
+				19F0FA511B89B258003E036E /* LGCommonButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19F0F9931B89B06B003E036E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19F0F9771B89B06B003E036E /* LGAlertSheetDemo */;
+			targetProxy = 19F0F9921B89B06B003E036E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		19F0F9851B89B06B003E036E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19F0F9861B89B06B003E036E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		19F0F98A1B89B06B003E036E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19F0F98B1B89B06B003E036E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19F0F9991B89B06B003E036E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19F0F99A1B89B06B003E036E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19F0F99C1B89B06B003E036E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LGAlertSheetDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		19F0F99D1B89B06B003E036E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LGAlertSheetDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		19F0F99F1B89B06B003E036E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LGAlertSheetDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LGAlertSheetDemo.app/LGAlertSheetDemo";
+			};
+			name = Debug;
+		};
+		19F0F9A01B89B06B003E036E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LGAlertSheetDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LGAlertSheetDemo.app/LGAlertSheetDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19F0F9731B89B06B003E036E /* Build configuration list for PBXProject "LGAlertSheetDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F0F9991B89B06B003E036E /* Debug */,
+				19F0F99A1B89B06B003E036E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19F0F99B1B89B06B003E036E /* Build configuration list for PBXNativeTarget "LGAlertSheetDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F0F99C1B89B06B003E036E /* Debug */,
+				19F0F99D1B89B06B003E036E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19F0F99E1B89B06B003E036E /* Build configuration list for PBXNativeTarget "LGAlertSheetDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F0F99F1B89B06B003E036E /* Debug */,
+				19F0F9A01B89B06B003E036E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19F0F9701B89B06B003E036E /* Project object */;
+}

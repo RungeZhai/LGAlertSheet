@@ -1,8 +1,8 @@
 //
 //  main.m
-//  LGAlertSheet
+//  LGAlertSheetDemo
 //
-//  Created by Runge Zhai on 8/11/15.
+//  Created by liuge on 8/23/15.
 //  Copyright (c) 2015 ZiXuWuYou. All rights reserved.
 //
 
