@@ -24,7 +24,9 @@
                   cancelButtonTitle:@"Cancel"
                    otherButtonTitle:@"OK"
                   cancelButtonBlock:nil
-                   otherButtonBlock:nil];
+                   otherButtonBlock:^(LGAlertView *alertView) {
+                       [alertView dismiss];
+                   }];
 }
 
 - (IBAction)didClickAlertWithTopImage:(id)sender {
@@ -80,7 +82,7 @@
 }
 
 - (void)simulateProgressOfAlertView:(LGAlertView *)alertView {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (alertView.progressView.currentProgress >= 1) {
             [alertView animateToCompletionState];
         } else {
