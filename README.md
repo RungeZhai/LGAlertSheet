@@ -2,10 +2,10 @@
 This project is the source code of a customized AlertView and ActionSheet.
 
 Four kinds of AlertViews are implemented:
-1.Normal AlertView with title, message and button(s);
-2.AlertView with an image on the top;
-3.AlertView with a TextField in it;
-4.AlertView showing a progress view and optionally transitioning to completion state.
+1. Normal AlertView with title, message and button(s);
+2. AlertView with an image on the top;
+3. AlertView with a TextField in it;
+4. AlertView showing a progress view and optionally transitioning to completion state.
 
 Two kinds of ActionSheet are implemented: ActionSheet with 1 option and with 2 options.
 
