@@ -120,7 +120,7 @@ static NSString *kProgressAnimationKey = @"drawCircleAnimation";
 }
 
 - (BOOL)animationHasCompleted {
-    return (_progress == _latestToValue);
+    return (_progress >= _latestToValue);
 }
 
 
