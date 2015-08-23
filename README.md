@@ -31,30 +31,29 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
 
 1. Showing a plain alert view:
 
-```
-[LGAlertView showAlertWithTitle:@"This is title"
-                        message:@"This is message"
-              cancelButtonTitle:@"Cancel"
-               otherButtonTitle:@"OK"
-              cancelButtonBlock:nil
-               otherButtonBlock:^(LGAlertView *alertView) {
-                   [alertView dismiss];
-               }];
-```
-Note that to dismiss the AlertView when the "OK" button is clicked, you have to manually call `dismiss` so that you can do something else of the alert like showing wrong message which we'll demostrate later.
-
+  ```
+  [LGAlertView showAlertWithTitle:@"This is title"
+                          message:@"This is message"
+                cancelButtonTitle:@"Cancel"
+                 otherButtonTitle:@"OK"
+                cancelButtonBlock:nil
+                 otherButtonBlock:^(LGAlertView *alertView) {
+                     [alertView dismiss];
+                 }];
+  ```
+  Note that to dismiss the AlertView when the "OK" button is clicked, you have to manually call `dismiss` so that you can do something else of the alert like showing wrong message which we'll demostrate later.
+  
 2. Showing an AlertView with an image on the top:
-
-```
-[LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
-                               title:@"This is title"
-                             message:@"This is message"
-                   cancelButtonTitle:@"Cancel"
-                    otherButtonTitle:@"OK"
-                   cancelButtonBlock:nil
-                    otherButtonBlock:nil];
-```
-
+  
+  ```
+  [LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
+                                 title:@"This is title"
+                               message:@"This is message"
+                     cancelButtonTitle:@"Cancel"
+                      otherButtonTitle:@"OK"
+                     cancelButtonBlock:nil
+                      otherButtonBlock:nil];
+  ```
 3. Showing AlertView with a TextField:
 
 ```
