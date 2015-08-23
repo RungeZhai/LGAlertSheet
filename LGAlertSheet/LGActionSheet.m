@@ -118,10 +118,10 @@ static dispatch_semaphore_t show_animation_semaphore;
 - (UIView *)superView {
 #ifdef LGAS_APP_EXTENSIONS
     if (!_superView) {
-        [NSException raise:@"LGAlertView: Superview must be set mannually in extensions"
-                    format:@"To use LGAlertView in extensions, you have to: \n\
+        [NSException raise:@"LGActionSheet: Superview must be set mannually in extensions"
+                    format:@"To use LGActionSheet in extensions, you have to: \n\
          1. Define Macro LGAS_APP_EXTENSIONS \n\
-         2. Init an alertView, set its superView and call show"];
+         2. Passing a nonnullable superView to Init... method and call show"];
     }
     return _superView;
 #else
@@ -158,7 +158,7 @@ static dispatch_semaphore_t show_animation_semaphore;
 - (void)setSuperView:(UIView *)superView {
     if (self.superview) {
         [NSException raise:NSObjectInaccessibleException
-                    format:@"LGAlertView: You cannot change alertview's superView once it has shown"];
+                    format:@"LGActionSheet: You cannot change actionSheet's superView once it has shown"];
     } else {
         _superView = superView;
     }
