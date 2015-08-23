@@ -9,6 +9,8 @@
 #import "LGProgressView.h"
 
 static CGFloat kProgressLineWidth = 5.;
+static NSString *kProgressAnimationKey = @"drawCircleAnimation";
+
 
 @interface LGProgressView ()
 
@@ -114,7 +116,7 @@ static CGFloat kProgressLineWidth = 5.;
     drawAnimation.delegate = self;
     
     // Add the animation to the circle
-    [circle addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
+    [circle addAnimation:drawAnimation forKey:kProgressAnimationKey];
 }
 
 - (BOOL)animationHasCompleted {
