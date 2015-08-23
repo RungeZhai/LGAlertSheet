@@ -11,7 +11,9 @@
 #import "LGProgressView.h"
 #import "NSPointerArray+AbstractionHelpers.h"
 
+#ifndef LGAS_SYSTEM_VERSION_LESS_THAN
 #define LGAS_SYSTEM_VERSION_LESS_THAN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#endif
 
 
 static NSMutableDictionary *stacks;
@@ -313,16 +315,15 @@ static dispatch_semaphore_t show_animation_semaphore;
 
 #ifndef LGAS_APP_EXTENSIONS
 - (UIWindow *)suitableWindowToShowAlertView {
-    
+    /**
+     *  We want the alert view to be exclusively on top. So keyboard window is considered.
+     *  Meanwhile, UIAlertView and UIAcionSheet's windows are not in the
+     *  UIApplication.sharedApplication.windows array, but they are set as keyWindow.
+     *  So we cannot always use topmost window as default superview.
+     *  Showing alert view with a textField when the keyboard is already in signt is weird.
+     *  So we dismiss the keyboard before alert view is shown.
+     */
     if (!_textField) {
-        /**
-         *  We want the alert view to be exclusively on top. So keyboard window is considered.
-         *  Meanwhile, UIAlertView and UIAcionSheet's windows are not in the
-         *  UIApplication.sharedApplication.windows array, but they are set as keyWindow.
-         *  So we cannot always use topmost window as default superview.
-         *  Showing alert view with a textField when the keyboard is already in signt is weird.
-         *  So we dismiss the keyboard before alert view is shown.
-         */
         UIWindow *topMostWindow = UIApplication.sharedApplication.windows.lastObject;
         BOOL windowOnMainScreen = topMostWindow.screen == UIScreen.mainScreen;
         BOOL windowIsVisible = !topMostWindow.hidden && topMostWindow.alpha > 0;
