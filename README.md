@@ -15,8 +15,11 @@ Two kinds of ActionSheet are implemented: ActionSheet with 1 option and with 2 o
 LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
 
 1. Easy to customize UI as it is implemented using xib and Autolayout.
+
 2. Fully optimized for device rotation and keyboard.
+
 3. Support extensions.
+
 4. Support multiple instances of AlertView/ActionSheet showing one above another.
 
 ## Demo
