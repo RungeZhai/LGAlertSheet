@@ -31,7 +31,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
 
 1. Showing a plain alert view:
 
-  ```
+  ```objective-c
   [LGAlertView showAlertWithTitle:@"This is title"
                           message:@"This is message"
                 cancelButtonTitle:@"Cancel"
@@ -45,7 +45,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
   
 2. Showing an AlertView with an image on the top:
   
-  ```
+  ```objective-c
   [LGAlertView showAlertWithTitleImage:[UIImage imageNamed:@"import_done"]
                                  title:@"This is title"
                                message:@"This is message"
@@ -56,7 +56,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
   ```
 3. Showing AlertView with a TextField:
   
-  ```
+  ```objective-c
   [LGAlertView showAlertWithTitle:@"This is Title"
                           message:@"This is message"
                 cancelButtonTitle:@"Cancel"
@@ -71,7 +71,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
   
 4. Showing AlertView with a progress view:
   
-  ```
+  ```objective-c
   LGAlertView *alertView = [LGAlertView alertWithInProgressImage:[UIImage imageNamed:@"import_in_progress"]
                                                  completionImage:[UIImage imageNamed:@"import_done"]
                                                          message:@"This is a long long long long long long message"
@@ -86,7 +86,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
   
 5. Showing ActionSheet with 1 options:
   
-  ```
+  ```objective-c
   [LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
                                      otherButtonTitle:@"OK"
                                     cancelButtonBlock:nil
@@ -97,7 +97,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
   
 6. Showing ActionSheet with 2 options:
   
-  ```
+  ```objective-c
   [LGActionSheet showActionSheetWithCancelButtonTitle:@"Cancel"
                                     otherButtonTitle0:@"Option 1"
                                     otherButtonTitle1:@"Option 2"
