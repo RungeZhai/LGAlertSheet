@@ -1,4 +1,8 @@
 # LGAlertSheet
+## Demo
+<img src="https://cloud.githubusercontent.com/assets/3366713/9427558/ccb5e920-49b6-11e5-90c8-4d5cd2cb5974.gif" width=320 />
+
+## About
 This project is the source code of a customized AlertView and ActionSheet.
 
 Four kinds of AlertViews are implemented:
@@ -22,9 +26,6 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
 3. Support extensions.
 
 4. Support multiple instances of AlertView/ActionSheet showing one above another.
-
-## Demo
-<img src="https://cloud.githubusercontent.com/assets/3366713/9427558/ccb5e920-49b6-11e5-90c8-4d5cd2cb5974.gif" width=320 />
 
 ## Usage
 
