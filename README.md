@@ -27,7 +27,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
 
 4. Support multiple instances of AlertView/ActionSheet showing one above another.
 
-Require iOS**7** or later. The popping up animation is a spring animation and it's only available on iOS7 and later.
+Requires iOS**7** or later. The popping up animation is a spring animation and it's only available on iOS7 and later.
 
 ## Usage
 
