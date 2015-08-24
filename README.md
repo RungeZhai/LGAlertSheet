@@ -3,7 +3,7 @@
 <img src="https://cloud.githubusercontent.com/assets/3366713/9427558/ccb5e920-49b6-11e5-90c8-4d5cd2cb5974.gif" width=320 />
 
 ## About
-This project is the source code of a customized AlertView and ActionSheet.
+LGAlertSheet includes customized AlertView and ActionSheet.
 
 Four kinds of AlertViews are implemented:
 
@@ -82,7 +82,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
       
   [alertView show];
   ```
-  You can call `[alertView animateToCompletionState];` if the progress is completed, or set `alertView.progressView`'s `animationCompletionCallBack` and in that block call `[alertView animateToCompletionState];` so that it will animate to completion state once the progress is completed.
+  You can call `[alertView animateToCompletionState];` after the progress is completed to transite to completion state, or set `alertView.progressView`'s `animationCompletionCallBack` and in that block call `[alertView animateToCompletionState];` so that it will animate to completion state once the progress is completed.
   
 5. Showing ActionSheet with 1 options:
   
@@ -93,7 +93,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
                                      otherButtonBlock:nil
                                              fromView:nil];
   ```
-  If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions ss we cannot us UIWindow in extensions.
+  If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions as we cannot us UIWindow in extensions.
   
 6. Showing ActionSheet with 2 options:
   
