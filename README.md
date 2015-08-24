@@ -95,7 +95,7 @@ Requires iOS**7** or later. The popping up animation is a spring animation and i
                                      otherButtonBlock:nil
                                              fromView:nil];
   ```
-  If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions as we cannot us UIWindow in extensions.
+  If you pass nil to `fromView`, the super view of ActionSheet is the topmost window. But CAUTION: This parameter MUST NOT be nil in extensions as we cannot use UIWindow in extensions.
   
 6. Showing ActionSheet with 2 options:
   
