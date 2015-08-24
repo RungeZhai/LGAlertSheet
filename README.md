@@ -41,7 +41,7 @@ LGAlertSheet pretty much covers most of the usage scenarios and, moreover:
                      [alertView dismiss];
                  }];
   ```
-  Note that to dismiss the AlertView when the "OK" button is clicked, you have to manually call `dismiss` so that you can do something else to the alert like showing wrong message which we'll demostrate later.
+  Note that to dismiss the AlertView when the "OK" button is clicked, you have to manually call `dismiss`. The advantage of this is that you can do something else to the alert like showing wrong message or popping up another AlertView.
   
 2. Showing an AlertView with an image on the top:
   
