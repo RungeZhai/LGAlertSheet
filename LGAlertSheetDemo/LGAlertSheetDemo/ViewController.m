@@ -18,8 +18,8 @@
 @implementation ViewController
 
 - (IBAction)didClickNormalAlert:(id)sender {
-    
-    [LGAlertView showAlertWithTitle:@"This is title"
+    LGAlertView *alert =
+    [LGAlertView alertWithTitle:@"This is title"
                             message:@"This is message"
                   cancelButtonTitle:@"Cancel"
                    otherButtonTitle:@"OK"
@@ -27,6 +27,8 @@
                    otherButtonBlock:^(LGAlertView *alertView) {
                        [alertView dismiss];
                    }];
+    alert.dismissOnTappingBackground = YES;
+    [alert show];
 }
 
 - (IBAction)didClickAlertWithTopImage:(id)sender {
@@ -40,7 +42,8 @@
 }
 
 - (IBAction)didClickAlertWithTextField:(id)sender {
-    [LGAlertView showAlertWithTitle:@"This is Title"
+    LGAlertView *alert =
+    [LGAlertView alertWithTitle:@"This is Title"
                             message:@"This is message"
                   cancelButtonTitle:@"Cancel"
                    otherButtonTitle:@"OK"
@@ -48,6 +51,9 @@
                      textFieldBlock:^(LGAlertView *alertView) {
                          [alertView showErrorMessage:@"Wrong Password" animated:YES];
                      }];
+    
+    alert.dismissOnTappingBackground = YES;
+    [alert show];
 }
 
 - (IBAction)didClickAlertWithProgress:(id)sender {

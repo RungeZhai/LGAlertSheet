@@ -685,7 +685,14 @@ static dispatch_semaphore_t show_animation_semaphore;
 #pragma mark - Touch To Hide Keyboard
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self endEditing:YES];
+    if (_textField.isFirstResponder) {
+        [_textField resignFirstResponder];
+    } else if (_dismissOnTappingBackground) {
+        UITouch *touch = [touches anyObject];
+        if ([touch view] == self) {
+            [self dismiss];
+        }
+    }
 }
 
 

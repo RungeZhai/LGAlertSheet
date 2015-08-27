@@ -61,6 +61,11 @@ typedef void (^LGAlertViewTextFieldBlock)(LGAlertView *alertView);
 @property (weak, nonatomic) IBOutlet UIImageView      *circularProgressBGImageView;
 @property (strong, nonatomic)        UIImage          *completionImage;
 
+/**
+ *  General purpose properties
+ */
+@property (nonatomic)                BOOL           dismissOnTappingBackground;
+
 
 /**
  *  General Show/Hide method
