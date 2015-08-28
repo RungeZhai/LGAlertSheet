@@ -690,7 +690,7 @@ static dispatch_semaphore_t show_animation_semaphore;
     } else if (_dismissOnTappingBackground) {
         UITouch *touch = [touches anyObject];
         if ([touch view] == self) {
-            [self dismiss];
+            [self didClickCancel:nil];
         }
     }
 }
