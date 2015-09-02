@@ -1,4 +1,6 @@
 # LGAlertSheet
+A customized AlertView and ActionSheet
+
 ## Demo
 <img src="https://cloud.githubusercontent.com/assets/3366713/9427558/ccb5e920-49b6-11e5-90c8-4d5cd2cb5974.gif" width=320 />
 
