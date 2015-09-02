@@ -255,6 +255,7 @@ static dispatch_semaphore_t show_animation_semaphore;
     } else if (!cancelButtonTitle && otherButtonTitle) {
         [_okButton setTitle:otherButtonTitle forState:UIControlStateNormal];
         _otherButtonBlock = otherButtonBlock;
+        _cancelButtonBlock = cancelButtonBlock;
         [_okButton removeTarget:self action:@selector(didClickCancel:) forControlEvents:UIControlEventTouchUpInside];
         [_okButton addTarget:self action:@selector(didClickOther:) forControlEvents:UIControlEventTouchUpInside];
         _okButton.hidden = NO;

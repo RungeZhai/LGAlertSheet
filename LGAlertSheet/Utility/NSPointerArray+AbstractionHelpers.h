@@ -37,7 +37,7 @@
 
 /**
  *  Retrive lowest index of the given object. 
- *  If none of the objects in the arra is equal to anObject, returns NSNotFound.
+ *  If none of the objects in the array is equal to anObject, returns NSNotFound.
  *  @param anObject Object to be located in the array
  */
 - (NSUInteger)indexOfObject:(id)anObject;
